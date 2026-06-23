@@ -38,10 +38,11 @@ language a health-economics consultancy speaks, what does that imply for cost pe
 and budget impact?</p>
 
 <div class="callout"><b>How to read this.</b> The causal estimate comes first and stands
-on its own. The HEOR overlay (QALYs, ICER, budget impact) is a transparent, sensitivity-
-tested <i>model</i> built on top of it. Where the causal evidence is weak, as it is for
-self-rated health here, the cost-effectiveness conclusion says so rather than manufacturing
-a favourable number.</div>
+on its own. The HEOR overlay (QALYs, ICER, budget impact) sits on top of it: it converts
+the causal estimate into cost-effectiveness terms and stress-tests that conversion against
+its assumptions. Where the causal evidence is weak, as it is for self-rated health here,
+the overlay reports that it cannot demonstrate cost-effectiveness rather than producing a
+favourable number anyway.</div>
 
 <h2>1. Identification</h2>
 <p>Treatment is a state adopting Medicaid expansion; timing is staggered from 2014
@@ -161,7 +162,7 @@ const costNote = (D.heor.cost_data_mode && D.heor.cost_data_mode!=="real")
   ? ` <i>(Cost side uses synthetic MEPS magnitudes, because the downloaded MEPS file is a `
     +`CPORT-compressed transport that cannot be read without SAS; see methods.)</i>` : "";
 document.getElementById("icer-callout").innerHTML =
-  `<b>Honest ICER.</b> ${bc.health_effect_credible
+  `<b>On the ICER.</b> ${bc.health_effect_credible
     ? 'The health effect is significant and survives the pre-trend diagnostic; the base-case ICER is '+usd(bc.icer)+'/QALY.'
     : 'The cost-per-QALY <b>on this outcome is not demonstrated</b>: '+bc.icer_status.replace(/^not_demonstrated: /,'')
       +'. The credible value of expansion here is in coverage and cost-barrier reductions, not a measurable QALY gain.'}`
