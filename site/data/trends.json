@@ -1,0 +1,117 @@
+{
+  "data_mode": "real",
+  "series": [
+    {
+      "cost_barrier": 0.33383,
+      "fair_poor_health": 0.31028,
+      "group": "expansion",
+      "uninsured": 0.37419,
+      "year": 2013
+    },
+    {
+      "cost_barrier": 0.29085,
+      "fair_poor_health": 0.3106,
+      "group": "expansion",
+      "uninsured": 0.28003,
+      "year": 2014
+    },
+    {
+      "cost_barrier": 0.25434,
+      "fair_poor_health": 0.30708,
+      "group": "expansion",
+      "uninsured": 0.23028,
+      "year": 2015
+    },
+    {
+      "cost_barrier": 0.23434,
+      "fair_poor_health": 0.30921,
+      "group": "expansion",
+      "uninsured": 0.21176,
+      "year": 2016
+    },
+    {
+      "cost_barrier": 0.23357,
+      "fair_poor_health": 0.32416,
+      "group": "expansion",
+      "uninsured": 0.22028,
+      "year": 2017
+    },
+    {
+      "cost_barrier": 0.22801,
+      "fair_poor_health": 0.33335,
+      "group": "expansion",
+      "uninsured": 0.21597,
+      "year": 2018
+    },
+    {
+      "cost_barrier": 0.23304,
+      "fair_poor_health": 0.33123,
+      "group": "expansion",
+      "uninsured": 0.23068,
+      "year": 2019
+    },
+    {
+      "cost_barrier": 0.21633,
+      "fair_poor_health": 0.31978,
+      "group": "expansion",
+      "uninsured": 0.20092,
+      "year": 2020
+    },
+    {
+      "cost_barrier": 0.38793,
+      "fair_poor_health": 0.31948,
+      "group": "non_expansion",
+      "uninsured": 0.45537,
+      "year": 2013
+    },
+    {
+      "cost_barrier": 0.35655,
+      "fair_poor_health": 0.32491,
+      "group": "non_expansion",
+      "uninsured": 0.39972,
+      "year": 2014
+    },
+    {
+      "cost_barrier": 0.33169,
+      "fair_poor_health": 0.32698,
+      "group": "non_expansion",
+      "uninsured": 0.35822,
+      "year": 2015
+    },
+    {
+      "cost_barrier": 0.32975,
+      "fair_poor_health": 0.31991,
+      "group": "non_expansion",
+      "uninsured": 0.34741,
+      "year": 2016
+    },
+    {
+      "cost_barrier": 0.32694,
+      "fair_poor_health": 0.33975,
+      "group": "non_expansion",
+      "uninsured": 0.35721,
+      "year": 2017
+    },
+    {
+      "cost_barrier": 0.31956,
+      "fair_poor_health": 0.34462,
+      "group": "non_expansion",
+      "uninsured": 0.35604,
+      "year": 2018
+    },
+    {
+      "cost_barrier": 0.33141,
+      "fair_poor_health": 0.36336,
+      "group": "non_expansion",
+      "uninsured": 0.36178,
+      "year": 2019
+    },
+    {
+      "cost_barrier": 0.25686,
+      "fair_poor_health": 0.34044,
+      "group": "non_expansion",
+      "uninsured": 0.28334,
+      "year": 2020
+    }
+  ]
+}

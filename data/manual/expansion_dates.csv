@@ -1,0 +1,59 @@
+# Medicaid expansion adoption timing — the treatment calendar.
+# expansion_year = first full calendar year of implemented expansion (newly-eligible
+# enrolment begins). States that never expanded in the window have expansion_year blank
+# (never-treated controls). Source: KFF "Status of State Medicaid Expansion Decisions"
+# tracker, https://www.kff.org/medicaid/issue-brief/status-of-state-medicaid-expansion-decisions/
+# Verified vintage 2026-06-15. Late adopters (>2019) are outside the core window and
+# treated as not-yet-treated controls within it.
+state_fips,state_abbr,state_name,expansion_year,source
+1,AL,Alabama,,KFF tracker 2026-06-15
+2,AK,Alaska,2015,KFF tracker 2026-06-15
+4,AZ,Arizona,2014,KFF tracker 2026-06-15
+5,AR,Arkansas,2014,KFF tracker 2026-06-15
+6,CA,California,2014,KFF tracker 2026-06-15
+8,CO,Colorado,2014,KFF tracker 2026-06-15
+9,CT,Connecticut,2014,KFF tracker 2026-06-15
+10,DE,Delaware,2014,KFF tracker 2026-06-15
+11,DC,District of Columbia,2014,KFF tracker 2026-06-15
+12,FL,Florida,,KFF tracker 2026-06-15
+13,GA,Georgia,,KFF tracker 2026-06-15
+15,HI,Hawaii,2014,KFF tracker 2026-06-15
+16,ID,Idaho,2020,KFF tracker 2026-06-15
+17,IL,Illinois,2014,KFF tracker 2026-06-15
+18,IN,Indiana,2015,KFF tracker 2026-06-15
+19,IA,Iowa,2014,KFF tracker 2026-06-15
+20,KS,Kansas,,KFF tracker 2026-06-15
+21,KY,Kentucky,2014,KFF tracker 2026-06-15
+22,LA,Louisiana,2016,KFF tracker 2026-06-15
+23,ME,Maine,2019,KFF tracker 2026-06-15
+24,MD,Maryland,2014,KFF tracker 2026-06-15
+25,MA,Massachusetts,2014,KFF tracker 2026-06-15
+26,MI,Michigan,2014,KFF tracker 2026-06-15
+27,MN,Minnesota,2014,KFF tracker 2026-06-15
+28,MS,Mississippi,,KFF tracker 2026-06-15
+29,MO,Missouri,2021,KFF tracker 2026-06-15
+30,MT,Montana,2016,KFF tracker 2026-06-15
+31,NE,Nebraska,2020,KFF tracker 2026-06-15
+32,NV,Nevada,2014,KFF tracker 2026-06-15
+33,NH,New Hampshire,2014,KFF tracker 2026-06-15
+34,NJ,New Jersey,2014,KFF tracker 2026-06-15
+35,NM,New Mexico,2014,KFF tracker 2026-06-15
+36,NY,New York,2014,KFF tracker 2026-06-15
+37,NC,North Carolina,2023,KFF tracker 2026-06-15
+38,ND,North Dakota,2014,KFF tracker 2026-06-15
+39,OH,Ohio,2014,KFF tracker 2026-06-15
+40,OK,Oklahoma,2021,KFF tracker 2026-06-15
+41,OR,Oregon,2014,KFF tracker 2026-06-15
+42,PA,Pennsylvania,2015,KFF tracker 2026-06-15
+44,RI,Rhode Island,2014,KFF tracker 2026-06-15
+45,SC,South Carolina,,KFF tracker 2026-06-15
+46,SD,South Dakota,2023,KFF tracker 2026-06-15
+47,TN,Tennessee,,KFF tracker 2026-06-15
+48,TX,Texas,,KFF tracker 2026-06-15
+49,UT,Utah,2020,KFF tracker 2026-06-15
+50,VT,Vermont,2014,KFF tracker 2026-06-15
+51,VA,Virginia,2019,KFF tracker 2026-06-15
+53,WA,Washington,2014,KFF tracker 2026-06-15
+54,WV,West Virginia,2014,KFF tracker 2026-06-15
+55,WI,Wisconsin,,KFF tracker 2026-06-15
+56,WY,Wyoming,,KFF tracker 2026-06-15

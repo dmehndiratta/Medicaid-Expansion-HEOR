@@ -1,0 +1,22 @@
+{
+  "data_mode": "real",
+  "engine_causal": "python (_csa.py)",
+  "generated_at": "2026-06-23T06:54:34+00:00",
+  "outcomes": {
+    "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+    "fair_poor_health": "Self-rated health fair or poor",
+    "uninsured": "Uninsured (no health coverage)"
+  },
+  "project": "Medicaid-Expansion-HEOR",
+  "seed": 20260615,
+  "synthetic_warning": null,
+  "window": [
+    2011,
+    2019
+  ],
+  "wtp_thresholds": [
+    50000,
+    100000,
+    150000
+  ]
+}

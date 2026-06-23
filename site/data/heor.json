@@ -1,0 +1,46 @@
+{
+  "base_case": {
+    "dcost_per_adult": 6174.45,
+    "dqaly_per_adult_year": 0.005983,
+    "health_att": {
+      "ci_high": -0.00098,
+      "ci_low": -0.03535,
+      "estimate": -0.01841,
+      "p_value": 0.041,
+      "se": 0.0087
+    },
+    "health_effect_credible": false,
+    "health_effect_significant": true,
+    "health_pretrend_flat": false,
+    "icer": null,
+    "icer_status": "not_demonstrated: self-rated-health effect fails the parallel-trends diagnostic (event-study pre-trend p=0.0); the ATT is not credibly causal, so a cost-per-QALY would overstate the evidence; cost-per-QALY on this outcome is not demonstrated",
+    "utility_delta_fairpoor_to_better": 0.325,
+    "utility_set": "cdc_hrqol"
+  },
+  "budget_impact": {
+    "eligible_population": 17000000,
+    "newly_covered": 11050000,
+    "note": "Stylised: per-adult cost is national MEPS magnitude, not state-matched.",
+    "total_incremental_cost": 68227672500.0,
+    "total_qaly_gain": 66114.9,
+    "uptake_rate": 0.65
+  },
+  "cost_data_mode": "real",
+  "coverage_findings_note": "The most credible causal result is the coverage effect (ATT on uninsurance), whose pre-trends are not rejected. The QALY/ICER overlay rests on the self-rated-health effect, which is statistically significant but FAILS the parallel-trends diagnostic, so it is not treated as credibly causal here, reported honestly rather than converted into a headline ICER.",
+  "data_mode": "real",
+  "seed": 20260615,
+  "thresholds": {
+    "100000": {
+      "cost_effective": false,
+      "nmb": -5576.12
+    },
+    "150000": {
+      "cost_effective": false,
+      "nmb": -5276.96
+    },
+    "50000": {
+      "cost_effective": false,
+      "nmb": -5875.29
+    }
+  }
+}

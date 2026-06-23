@@ -1,0 +1,70 @@
+# config.yaml — single source of truth for the Medicaid-Expansion-HEOR pipeline.
+# Every script reads this; nothing hard-codes a window, threshold, or seed.
+
+seed: 20260615                 # bootstrap + PSA RNG; recorded into every results JSON
+
+window:
+  start: 2011                  # core pre/post-2014 window (clean, pre-COVID)
+  end: 2019
+  reference_period: -1         # event-time period normalised to zero (last pre-period)
+  exclude_covid: true          # 2020-21 handled only as a flagged appendix, never headline
+
+eligibility:
+  # Policy-eligible target population. Effects are diluted if estimated on all adults.
+  age_min: 19                  # non-elderly adults
+  age_max: 64
+  income_fpl_max: 138          # <=138% Federal Poverty Level (ACA expansion threshold)
+  # BRFSS lacks a clean continuous FPL; we proxy from income bracket + household size.
+  # The proxy is documented in CLAUDE.md and tested in tests/test_eligibility.py.
+
+outcomes:
+  # name -> human label; each is a 0/1 indicator built in build_brfss_panel.py
+  uninsured: "Uninsured (no health coverage)"
+  cost_barrier: "Could not see a doctor because of cost (last 12 months)"
+  fair_poor_health: "Self-rated health fair or poor"
+
+estimators:
+  headline: callaway_santanna  # group-time ATT, never- + not-yet-treated controls
+  control_group: notyettreated # {notyettreated, nevertreated}
+  show_twfe: true              # shown only to illustrate staggered-adoption bias
+  show_sunab: true             # Sun-Abraham interaction-weighted event study
+
+event_study:
+  # Report/test only event times with adequate cohort support. Extreme leads/lags are
+  # identified off a single cohort and are noisy; restricting the window is standard CS
+  # practice and keeps the pre-trend test honest rather than tripping on one-cohort noise.
+  window_min: -5
+  window_max: 5
+  min_cohorts: 2               # an event time must be supported by >= this many cohorts
+
+inference:
+  cluster: state               # DiD inference clusters on state
+  wild_bootstrap_reps: 999     # wild-cluster (Rademacher) bootstrap; few-clusters fix
+  ci_level: 0.95
+
+heor:
+  # HEOR overlay assumptions. ALL are model inputs, varied in PSA — not measurements.
+  utility_base_case: cdc_hrqol # which row-set in utility_weights.csv anchors the base case
+  discount_rate: 0.03          # annual discount for QALYs and costs
+  horizon_years: 1             # base-case horizon for the per-person annual translation
+  wtp_thresholds: [50000, 100000, 150000]   # US willingness-to-pay anchors ($/QALY)
+
+budget_impact:
+  eligible_population: 17000000   # approx. non-elderly low-income adults in expansion states
+  uptake_rate: 0.65               # share of newly-eligible who enrol (base case; varied in PSA)
+
+psa:
+  draws: 5000                  # Monte Carlo draws for the probabilistic sensitivity analysis
+  # Distributions are parameterised in heor_psa.py from the point estimates + their SEs.
+
+synthetic:
+  # When real BRFSS/MEPS files are absent, the pipeline builds a calibrated synthetic
+  # panel so the full chain runs and is testable. This block is the DGP. The synthetic
+  # flag is propagated into every JSON so the dashboard/report label it honestly.
+  enabled_when_no_raw: true
+  n_states: 50
+  respondents_per_state_year: 1500
+  planted_att:                 # the "true" effects the simulator injects (for validation)
+    uninsured: -0.060          # expansion cuts uninsurance ~6pp among eligible
+    cost_barrier: -0.035       # ~3.5pp drop in cost-related access barrier
+    fair_poor_health: -0.018   # small, slow health improvement (suggestive, likely NOT significant)

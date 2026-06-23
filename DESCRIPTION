@@ -1,0 +1,18 @@
+Package: MedicaidExpansionHEOR
+Title: Staggered DiD (Callaway-Sant'Anna) for Medicaid expansion, HEOR-framed
+Version: 0.1.0
+Description: R dependencies for the headline causal estimators. Pin with
+    renv::init(); renv::snapshot() to produce renv.lock (R 4.4.x). The Python pipeline
+    (requirements.txt) orchestrates and runs the HEOR/PSA; these R packages run the
+    staggered-DiD frontier. If R is unavailable, the tested Python implementation in
+    pipeline/csa.py reproduces the same results JSON (plan §11 Q4).
+Depends: R (>= 4.4.0)
+Imports:
+    did,
+    fixest,
+    bacondecomp,
+    fwildclusterboot,
+    arrow,
+    jsonlite,
+    yaml
+Encoding: UTF-8

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Medicaid Expansion: Causal & HEOR Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.32.0/plotly.min.js"></script>
+<style>
+  :root{--ink:#10212b;--mut:#5b6b75;--line:#e3e8ec;--brand:#0b6e7a;--bad:#b4413c;--bg:#f7f9fa}
+  *{box-sizing:border-box}
+  body{margin:0;font:15px/1.5 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+  header{padding:20px 24px;background:#fff;border-bottom:1px solid var(--line)}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--mut);font-size:13px;max-width:880px}
+  .banner{margin:12px 24px 0;padding:10px 14px;border-radius:8px;font-size:13px}
+  .banner.syn{background:#fff4e5;border:1px solid #f0c27a;color:#8a5a00}
+  .tabs{display:flex;gap:4px;padding:14px 24px 0;flex-wrap:wrap}
+  .tab{padding:9px 16px;border:1px solid var(--line);border-bottom:none;background:#eef2f4;
+       border-radius:8px 8px 0 0;cursor:pointer;font-size:14px;color:var(--mut)}
+  .tab.active{background:#fff;color:var(--ink);font-weight:600}
+  .panel{display:none;background:#fff;margin:0 24px 24px;border:1px solid var(--line);
+         border-radius:0 8px 8px 8px;padding:20px}
+  .panel.active{display:block}
+  .row{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+  .ctl{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--mut)}
+  select,input[type=range]{font:inherit}
+  select{padding:6px 8px;border:1px solid var(--line);border-radius:6px}
+  .plot{width:100%;height:440px}
+  .note{color:var(--mut);font-size:13px;margin-top:10px}
+  .kpis{display:flex;gap:18px;flex-wrap:wrap;margin:8px 0 4px}
+  .kpi{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 16px;min-width:150px}
+  .kpi .v{font-size:22px;font-weight:700}
+  .kpi .l{font-size:12px;color:var(--mut)}
+  .flag-ok{color:var(--brand);font-weight:600}
+  .flag-bad{color:var(--bad);font-weight:600}
+  table{border-collapse:collapse;font-size:13px;margin-top:10px}
+  th,td{border:1px solid var(--line);padding:6px 10px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  code{background:#eef2f4;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header>
+  <h1>ACA Medicaid Expansion: Causal Effects &amp; HEOR Translation</h1>
+  <div class="sub">Staggered difference-in-differences (Callaway–Sant'Anna), with naive
+  TWFE and Sun–Abraham for contrast, translated into ICER / QALY / budget-impact terms
+  with a probabilistic sensitivity analysis. The causal effect is the credible result;
+  the HEOR overlay is a transparent, sensitivity-tested model on top of it.</div>
+</header>
+<div id="banner"></div>
+
+<div class="tabs">
+  <div class="tab active" data-p="es">Event study</div>
+  <div class="tab" data-p="cmp">Estimator comparison</div>
+  <div class="tab" data-p="ceac">CEAC explorer</div>
+  <div class="tab" data-p="bi">Budget-impact calculator</div>
+</div>
+
+<!-- Event study -->
+<section class="panel active" id="p-es">
+  <div class="row">
+    <label class="ctl">Outcome
+      <select id="es-outcome"></select>
+    </label>
+    <div id="es-kpi" class="kpis"></div>
+  </div>
+  <div id="es-plot" class="plot"></div>
+  <div class="note">Pre-treatment leads (event time &lt; −1) should be flat and near zero;
+  this is the make-or-break parallel-trends diagnostic. The shaded band is the
+  wild-cluster bootstrap 95% CI. Reference period (−1) is normalised to zero.</div>
+</section>
+
+<!-- Estimator comparison -->
+<section class="panel" id="p-cmp">
+  <div id="cmp-plot" class="plot"></div>
+  <div id="cmp-gb" class="note"></div>
+  <div class="note">Callaway–Sant'Anna (headline) vs naive two-way fixed effects. Under
+  staggered timing TWFE averages in "forbidden" already-treated-as-control comparisons;
+  the Goodman-Bacon decomposition below quantifies their weight.</div>
+  <div id="cmp-table"></div>
+</section>
+
+<!-- CEAC -->
+<section class="panel" id="p-ceac">
+  <div class="row">
+    <label class="ctl">Willingness-to-pay (per QALY): <b id="wtp-val"></b>
+      <input id="wtp" type="range" min="0" max="1000000" step="10000" style="width:340px" />
+    </label>
+    <div id="ceac-kpi" class="kpis"></div>
+  </div>
+  <div id="ceac-plot" class="plot"></div>
+  <div id="plane-plot" class="plot" style="height:360px"></div>
+  <div class="note" id="ceac-note"></div>
+</section>
+
+<!-- Budget impact -->
+<section class="panel" id="p-bi">
+  <div class="row">
+    <label class="ctl">Eligible population: <b id="pop-val"></b>
+      <input id="pop" type="range" style="width:300px" />
+    </label>
+    <label class="ctl">Uptake rate: <b id="up-val"></b>
+      <input id="up" type="range" min="0.3" max="0.9" step="0.01" style="width:300px" />
+    </label>
+  </div>
+  <div id="bi-kpi" class="kpis"></div>
+  <div class="note">Total annual incremental medical cost = newly-covered × per-adult MEPS
+  cost. The QALY gain rests on the self-rated-health effect, which fails the pre-trend test,
+  so the cost side is firm while the QALY side is not credibly identified, exactly as the
+  analysis concludes.</div>
+</section>
+
+<script src="data/bundle.js"></script>
+<script>
+const D = window.MEHEOR_DATA;
+const fmt = (x,d=4)=> (x>=0?"+":"") + Number(x).toFixed(d);
+const usd = x => "$" + Math.round(x).toLocaleString();
+const pct = x => (100*x).toFixed(1) + "%";
+const labels = D.meta.outcomes;
+
+// banner
+if (D.meta.data_mode === "synthetic") {
+  document.getElementById("banner").innerHTML =
+    '<div class="banner syn"><b>Synthetic demonstration data.</b> No real BRFSS/MEPS files were '
+    + 'present, so the pipeline ran on a calibrated synthetic panel with a known planted effect. '
+    + 'These figures demonstrate the machinery and the estimators\' ability to recover it. '
+    + 'they are <b>not</b> a substantive finding. Seed ' + D.meta.seed + '.</div>';
+} else if (D.heor.cost_data_mode && D.heor.cost_data_mode !== "real") {
+  document.getElementById("banner").innerHTML =
+    '<div class="banner syn"><b>Real BRFSS causal estimates; synthetic cost side.</b> The DiD '
+    + 'runs on real CDC BRFSS (2011–2019). The MEPS cost file downloaded was a CPORT-compressed '
+    + 'SAS transport that cannot be read without SAS, so the ICER/budget cost magnitudes use '
+    + 'calibrated synthetic values. Coverage & cost-barrier effects are real; the QALY/cost '
+    + 'overlay is illustrative.</div>';
+}
+
+// tabs
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".panel").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");
+  document.getElementById("p-"+t.dataset.p).classList.add("active");
+  window.dispatchEvent(new Event("resize"));
+});
+
+// ---------- Event study ----------
+const cs = D.did.csdid.results;
+const sel = document.getElementById("es-outcome");
+Object.keys(labels).forEach(o=>{
+  const opt=document.createElement("option"); opt.value=o; opt.textContent=labels[o]; sel.appendChild(opt);
+});
+function drawES(o){
+  const r = cs[o], es = r.event_study;
+  const x = es.map(d=>d.event_time);
+  const y = es.map(d=>d.estimate);
+  const lo = es.map(d=>d.estimate-d.ci_low), hi = es.map(d=>d.ci_high-d.estimate);
+  const att = r.overall_att, pt = r.pre_trend_test;
+  document.getElementById("es-kpi").innerHTML =
+    `<div class="kpi"><div class="v">${fmt(att.estimate)}</div><div class="l">Overall ATT (pp) [${fmt(att.ci_low)}, ${fmt(att.ci_high)}]</div></div>`
+   +`<div class="kpi"><div class="v ${pt.flat?'flag-ok':'flag-bad'}">${pt.p_value}</div><div class="l">Pre-trend test p-value<br>${pt.flat?'flat, identification supported':'NOT flat, suspect'}</div></div>`;
+  Plotly.newPlot("es-plot",[{
+    x,y,error_y:{type:"data",symmetric:false,array:hi,arrayminus:lo,color:"#0b6e7a"},
+    mode:"markers+lines",line:{color:"#0b6e7a"},marker:{size:7},name:"ATT(e)"}],{
+    margin:{t:20,r:10,b:48,l:56},
+    xaxis:{title:"Event time (years since adoption)",zeroline:false,dtick:1},
+    yaxis:{title:"ATT on "+labels[o]+" (pp)",zeroline:true,zerolinecolor:"#94a3b8"},
+    shapes:[{type:"line",x0:-1,x1:-1,yref:"paper",y0:0,y1:1,line:{dash:"dot",color:"#cbd5e1"}}],
+    annotations:[{x:-1,y:1,yref:"paper",text:"ref",showarrow:false,font:{size:11,color:"#94a3b8"}}]
+  },{responsive:true,displayModeBar:false});
+}
+sel.onchange=()=>drawES(sel.value); drawES(Object.keys(labels)[0]);
+
+// ---------- Estimator comparison ----------
+const contrast = D.did.contrast.results;
+(function(){
+  const outs = Object.keys(labels);
+  const csv = outs.map(o=>cs[o].overall_att.estimate);
+  const cserr = outs.map(o=>cs[o].overall_att.se*1.96);
+  const tw = outs.map(o=>contrast[o].twfe_static.estimate);
+  const twerr = outs.map(o=>contrast[o].twfe_static.se*1.96);
+  Plotly.newPlot("cmp-plot",[
+    {x:outs.map(o=>labels[o]),y:csv,error_y:{type:"data",array:cserr},type:"bar",name:"Callaway–Sant'Anna (headline)",marker:{color:"#0b6e7a"}},
+    {x:outs.map(o=>labels[o]),y:tw,error_y:{type:"data",array:twerr},type:"bar",name:"Naive TWFE (biased)",marker:{color:"#c98a3a"}}
+  ],{barmode:"group",margin:{t:20,r:10,b:60,l:56},
+     yaxis:{title:"Overall ATT (pp)",zeroline:true},legend:{orientation:"h",y:1.12}},
+     {responsive:true,displayModeBar:false});
+  const gb = contrast[outs[0]].goodman_bacon;
+  document.getElementById("cmp-gb").innerHTML =
+    `<b>Goodman-Bacon:</b> ${pct(gb.forbidden_comparison_weight)} of the TWFE estimate's weight comes from `
+    + `<i>forbidden</i> already-treated-as-control 2×2 comparisons, the bias that motivates the CS headline.`;
+  let rows = "<table><tr><th>Comparison type</th><th>Weight</th><th>Avg 2×2 DiD</th></tr>";
+  Object.entries(gb.by_type).forEach(([k,v])=>{
+    rows += `<tr><td>${k.replace(/_/g,' ')}</td><td>${pct(v.weight_share)}</td><td>${fmt(v.avg_did)}</td></tr>`;});
+  rows += "</table>";
+  document.getElementById("cmp-table").innerHTML = rows;
+})();
+
+// ---------- CEAC ----------
+const psa = D.psa;
+(function(){
+  const x = psa.ceac.map(d=>d.wtp), y = psa.ceac.map(d=>d.prob_cost_effective);
+  const thr = D.meta.wtp_thresholds;
+  Plotly.newPlot("ceac-plot",[{x,y,mode:"lines",line:{color:"#0b6e7a",width:3},name:"P(cost-effective)"}],{
+    margin:{t:20,r:10,b:48,l:56},
+    xaxis:{title:"Willingness-to-pay ($/QALY)",tickformat:"$,.0s"},
+    yaxis:{title:"Probability cost-effective",range:[0,1]},
+    shapes:thr.map(t=>({type:"line",x0:t,x1:t,yref:"paper",y0:0,y1:1,line:{dash:"dot",color:"#cbd5e1"}})),
+    annotations:thr.map(t=>({x:t,y:1,yref:"paper",text:usd(t),showarrow:false,font:{size:10,color:"#94a3b8"}}))
+  },{responsive:true,displayModeBar:false});
+  // CE plane
+  const pl = psa.ce_plane;
+  Plotly.newPlot("plane-plot",[{
+    x:pl.map(d=>d.dqaly),y:pl.map(d=>d.dcost),mode:"markers",
+    marker:{size:5,color:"#0b6e7a",opacity:0.35},name:"PSA draws"}],{
+    margin:{t:10,r:10,b:48,l:64},
+    xaxis:{title:"Δ QALY per adult-year",zeroline:true},
+    yaxis:{title:"Δ cost per adult ($)",zeroline:true},
+    title:{text:"Cost-effectiveness plane (PSA draws)",font:{size:13}}
+  },{responsive:true,displayModeBar:false});
+
+  const wtp = document.getElementById("wtp");
+  function upd(){
+    const v = +wtp.value;
+    document.getElementById("wtp-val").textContent = usd(v);
+    // nearest grid point
+    let best = psa.ceac[0];
+    psa.ceac.forEach(d=>{ if(Math.abs(d.wtp-v)<Math.abs(best.wtp-v)) best=d; });
+    const s = psa.icer_summary;
+    document.getElementById("ceac-kpi").innerHTML =
+      `<div class="kpi"><div class="v">${pct(best.prob_cost_effective)}</div><div class="l">P(cost-effective) at ${usd(v)}/QALY</div></div>`
+     +`<div class="kpi"><div class="v">${s.median_icer?usd(s.median_icer):'n/a'}</div><div class="l">Median ICER (where ΔQALY&gt;0)</div></div>`
+     +`<div class="kpi"><div class="v">${pct(s.prob_qaly_positive)}</div><div class="l">P(ΔQALY &gt; 0)</div></div>`;
+  }
+  wtp.value = 100000; upd(); wtp.oninput = upd;
+  document.getElementById("ceac-note").textContent = psa.note;
+})();
+
+// ---------- Budget impact ----------
+(function(){
+  const base = D.heor.budget_impact, dcost = D.heor.base_case.dcost_per_adult,
+        dqaly = D.heor.base_case.dqaly_per_adult_year;
+  const pop = document.getElementById("pop"), up = document.getElementById("up");
+  pop.min = Math.round(base.eligible_population*0.5); pop.max = Math.round(base.eligible_population*1.5);
+  pop.step = 100000; pop.value = base.eligible_population;
+  up.value = base.uptake_rate;
+  function upd(){
+    const P=+pop.value, U=+up.value, covered=P*U;
+    document.getElementById("pop-val").textContent = (P/1e6).toFixed(1)+"M";
+    document.getElementById("up-val").textContent = pct(U);
+    document.getElementById("bi-kpi").innerHTML =
+      `<div class="kpi"><div class="v">${(covered/1e6).toFixed(1)}M</div><div class="l">Newly covered adults</div></div>`
+     +`<div class="kpi"><div class="v">${usd(covered*dcost/1e9)}B</div><div class="l">Total annual incremental cost</div></div>`
+     +`<div class="kpi"><div class="v">${Math.round(covered*dqaly).toLocaleString()}</div><div class="l">Modelled QALY gain/yr (uncertain)</div></div>`;
+  }
+  upd(); pop.oninput=upd; up.oninput=upd;
+})();
+</script>
+</body>
+</html>

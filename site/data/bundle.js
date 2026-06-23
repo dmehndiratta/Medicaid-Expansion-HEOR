@@ -1,0 +1,4901 @@
+window.MEHEOR_DATA = {
+  "cost_params": {
+    "cost_data_mode": "real",
+    "incremental_cost_se": 417.5,
+    "incremental_total_cost_per_adult": 6174.45,
+    "mean_total_exp_covered": 7357.96,
+    "mean_total_exp_uninsured": 1183.51,
+    "n_covered": 4130,
+    "n_uninsured": 1009,
+    "note": "Incremental TOTAL medical expenditure of a covered vs uninsured low-income adult; national MEPS magnitudes, stylised budget-impact input.",
+    "oop_share_reduction": 0.4002
+  },
+  "did": {
+    "contrast": {
+      "data_mode": "real",
+      "method": "twfe_sunab_bacon",
+      "outcome_labels": {
+        "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+        "fair_poor_health": "Self-rated health fair or poor",
+        "uninsured": "Uninsured (no health coverage)"
+      },
+      "results": {
+        "cost_barrier": {
+          "goodman_bacon": {
+            "by_type": {
+              "earlier_vs_later_clean": {
+                "avg_did": -0.05034,
+                "weight_share": 0.0731
+              },
+              "later_vs_earlier_FORBIDDEN": {
+                "avg_did": -0.03735,
+                "weight_share": 0.1333
+              },
+              "treated_vs_never": {
+                "avg_did": -0.04738,
+                "weight_share": 0.7936
+              }
+            },
+            "forbidden_comparison_weight": 0.1333,
+            "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+            "twfe_implied_weighted_avg": -0.04626
+          },
+          "sunab_event_study": [
+            {
+              "ci_high": 0.01789,
+              "ci_low": -0.03029,
+              "estimate": -0.0062,
+              "event_time": -5,
+              "se": 0.01229
+            },
+            {
+              "ci_high": 0.02019,
+              "ci_low": -0.01126,
+              "estimate": 0.00447,
+              "event_time": -4,
+              "se": 0.00802
+            },
+            {
+              "ci_high": 0.04983,
+              "ci_low": -0.00044,
+              "estimate": 0.0247,
+              "event_time": -3,
+              "se": 0.01282
+            },
+            {
+              "ci_high": 0.01411,
+              "ci_low": -0.02916,
+              "estimate": -0.00752,
+              "event_time": -2,
+              "se": 0.01104
+            },
+            {
+              "ci_high": 0.00131,
+              "ci_low": -0.0257,
+              "estimate": -0.0122,
+              "event_time": 0,
+              "se": 0.00689
+            },
+            {
+              "ci_high": 0.09132,
+              "ci_low": -0.05386,
+              "estimate": 0.01873,
+              "event_time": 1,
+              "se": 0.03704
+            },
+            {
+              "ci_high": -0.04481,
+              "ci_low": -0.07278,
+              "estimate": -0.05879,
+              "event_time": 2,
+              "se": 0.00714
+            },
+            {
+              "ci_high": -0.04514,
+              "ci_low": -0.08662,
+              "estimate": -0.06588,
+              "event_time": 3,
+              "se": 0.01058
+            },
+            {
+              "ci_high": -0.02589,
+              "ci_low": -0.06016,
+              "estimate": -0.04302,
+              "event_time": 4,
+              "se": 0.00874
+            },
+            {
+              "ci_high": -0.0071,
+              "ci_low": -0.06918,
+              "estimate": -0.03814,
+              "event_time": 5,
+              "se": 0.01584
+            }
+          ],
+          "twfe_static": {
+            "estimate": -0.03424,
+            "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+            "se": 0.00716
+          }
+        },
+        "fair_poor_health": {
+          "goodman_bacon": {
+            "by_type": {
+              "earlier_vs_later_clean": {
+                "avg_did": -0.01056,
+                "weight_share": 0.0731
+              },
+              "later_vs_earlier_FORBIDDEN": {
+                "avg_did": -0.02715,
+                "weight_share": 0.1333
+              },
+              "treated_vs_never": {
+                "avg_did": 0.00445,
+                "weight_share": 0.7936
+              }
+            },
+            "forbidden_comparison_weight": 0.1333,
+            "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+            "twfe_implied_weighted_avg": -0.00086
+          },
+          "sunab_event_study": [
+            {
+              "ci_high": 0.0123,
+              "ci_low": -0.02204,
+              "estimate": -0.00487,
+              "event_time": -5,
+              "se": 0.00876
+            },
+            {
+              "ci_high": -0.00824,
+              "ci_low": -0.04728,
+              "estimate": -0.02776,
+              "event_time": -4,
+              "se": 0.00996
+            },
+            {
+              "ci_high": 0.00699,
+              "ci_low": -0.02007,
+              "estimate": -0.00654,
+              "event_time": -3,
+              "se": 0.0069
+            },
+            {
+              "ci_high": -0.00906,
+              "ci_low": -0.03357,
+              "estimate": -0.02131,
+              "event_time": -2,
+              "se": 0.00625
+            },
+            {
+              "ci_high": -0.00466,
+              "ci_low": -0.02596,
+              "estimate": -0.01531,
+              "event_time": 0,
+              "se": 0.00543
+            },
+            {
+              "ci_high": -0.05623,
+              "ci_low": -0.08794,
+              "estimate": -0.07208,
+              "event_time": 1,
+              "se": 0.00809
+            },
+            {
+              "ci_high": 0.01737,
+              "ci_low": -0.01789,
+              "estimate": -0.00026,
+              "event_time": 2,
+              "se": 0.009
+            },
+            {
+              "ci_high": 0.01435,
+              "ci_low": -0.02296,
+              "estimate": -0.0043,
+              "event_time": 3,
+              "se": 0.00952
+            },
+            {
+              "ci_high": 0.01101,
+              "ci_low": -0.02329,
+              "estimate": -0.00614,
+              "event_time": 4,
+              "se": 0.00875
+            },
+            {
+              "ci_high": 0.02193,
+              "ci_low": -0.04895,
+              "estimate": -0.01351,
+              "event_time": 5,
+              "se": 0.01808
+            }
+          ],
+          "twfe_static": {
+            "estimate": -0.00814,
+            "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+            "se": 0.00889
+          }
+        },
+        "uninsured": {
+          "goodman_bacon": {
+            "by_type": {
+              "earlier_vs_later_clean": {
+                "avg_did": -0.08101,
+                "weight_share": 0.0731
+              },
+              "later_vs_earlier_FORBIDDEN": {
+                "avg_did": -0.10498,
+                "weight_share": 0.1333
+              },
+              "treated_vs_never": {
+                "avg_did": -0.09141,
+                "weight_share": 0.7936
+              }
+            },
+            "forbidden_comparison_weight": 0.1333,
+            "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+            "twfe_implied_weighted_avg": -0.09246
+          },
+          "sunab_event_study": [
+            {
+              "ci_high": 0.031,
+              "ci_low": -0.0081,
+              "estimate": 0.01145,
+              "event_time": -5,
+              "se": 0.00997
+            },
+            {
+              "ci_high": 0.00294,
+              "ci_low": -0.05196,
+              "estimate": -0.02451,
+              "event_time": -4,
+              "se": 0.014
+            },
+            {
+              "ci_high": 0.02913,
+              "ci_low": -0.00248,
+              "estimate": 0.01332,
+              "event_time": -3,
+              "se": 0.00806
+            },
+            {
+              "ci_high": 0.01402,
+              "ci_low": -0.01821,
+              "estimate": -0.00209,
+              "event_time": -2,
+              "se": 0.00822
+            },
+            {
+              "ci_high": -0.01767,
+              "ci_low": -0.05821,
+              "estimate": -0.03794,
+              "event_time": 0,
+              "se": 0.01034
+            },
+            {
+              "ci_high": -0.0871,
+              "ci_low": -0.12723,
+              "estimate": -0.10716,
+              "event_time": 1,
+              "se": 0.01024
+            },
+            {
+              "ci_high": -0.06543,
+              "ci_low": -0.11586,
+              "estimate": -0.09064,
+              "event_time": 2,
+              "se": 0.01286
+            },
+            {
+              "ci_high": -0.05994,
+              "ci_low": -0.10836,
+              "estimate": -0.08415,
+              "event_time": 3,
+              "se": 0.01235
+            },
+            {
+              "ci_high": -0.06435,
+              "ci_low": -0.11358,
+              "estimate": -0.08896,
+              "event_time": 4,
+              "se": 0.01256
+            },
+            {
+              "ci_high": -0.05167,
+              "ci_low": -0.13891,
+              "estimate": -0.09529,
+              "event_time": 5,
+              "se": 0.02225
+            }
+          ],
+          "twfe_static": {
+            "estimate": -0.05938,
+            "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+            "se": 0.01707
+          }
+        }
+      },
+      "seed": 20260615
+    },
+    "csdid": {
+      "data_mode": "real",
+      "engine": "python (_csa.py)",
+      "method": "callaway_santanna",
+      "outcome_labels": {
+        "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+        "fair_poor_health": "Self-rated health fair or poor",
+        "uninsured": "Uninsured (no health coverage)"
+      },
+      "results": {
+        "cost_barrier": {
+          "bootstrap_reps": 999,
+          "ci_level": 0.95,
+          "control_group": "notyettreated",
+          "estimator": "callaway_santanna",
+          "event_study": [
+            {
+              "ci_high": 0.04409,
+              "ci_low": 0.00442,
+              "estimate": 0.02413,
+              "event_time": -3,
+              "p_value": 0.014,
+              "se": 0.01068
+            },
+            {
+              "ci_high": 0.00827,
+              "ci_low": -0.02513,
+              "estimate": -0.00833,
+              "event_time": -2,
+              "p_value": 0.3844,
+              "se": 0.00911
+            },
+            {
+              "ci_high": -0.0035,
+              "ci_low": -0.02348,
+              "estimate": -0.01358,
+              "event_time": 0,
+              "p_value": 0.005,
+              "se": 0.00522
+            },
+            {
+              "ci_high": 0.07556,
+              "ci_low": -0.01351,
+              "estimate": 0.03079,
+              "event_time": 1,
+              "p_value": 0.2963,
+              "se": 0.02474
+            },
+            {
+              "ci_high": -0.0487,
+              "ci_low": -0.07281,
+              "estimate": -0.0608,
+              "event_time": 2,
+              "p_value": 0.0,
+              "se": 0.00622
+            },
+            {
+              "ci_high": -0.04919,
+              "ci_low": -0.08557,
+              "estimate": -0.06755,
+              "event_time": 3,
+              "p_value": 0.0,
+              "se": 0.00932
+            },
+            {
+              "ci_high": -0.01632,
+              "ci_low": -0.0836,
+              "estimate": -0.05097,
+              "event_time": 4,
+              "p_value": 0.001,
+              "se": 0.01762
+            },
+            {
+              "ci_high": 0.00458,
+              "ci_low": -0.17139,
+              "estimate": -0.08543,
+              "event_time": 5,
+              "p_value": 0.0641,
+              "se": 0.04611
+            }
+          ],
+          "n_blocks": 28,
+          "n_states": 53,
+          "outcome": "cost_barrier",
+          "overall_att": {
+            "ci_high": -0.01622,
+            "ci_low": -0.0531,
+            "estimate": -0.03553,
+            "p_value": 0.0,
+            "se": 0.0097
+          },
+          "pre_trend_test": {
+            "flat": false,
+            "interpretation": "PRE-TRENDS REJECTED, identification suspect",
+            "leads_tested": [
+              -3,
+              -2
+            ],
+            "p_value": 0.0075,
+            "wald_stat": 9.7845
+          }
+        },
+        "fair_poor_health": {
+          "bootstrap_reps": 999,
+          "ci_level": 0.95,
+          "control_group": "notyettreated",
+          "estimator": "callaway_santanna",
+          "event_study": [
+            {
+              "ci_high": -0.00263,
+              "ci_low": -0.03653,
+              "estimate": -0.01926,
+              "event_time": -3,
+              "p_value": 0.014,
+              "se": 0.00919
+            },
+            {
+              "ci_high": -0.01995,
+              "ci_low": -0.03779,
+              "estimate": -0.02851,
+              "event_time": -2,
+              "p_value": 0.0,
+              "se": 0.00463
+            },
+            {
+              "ci_high": -0.0135,
+              "ci_low": -0.02757,
+              "estimate": -0.02061,
+              "event_time": 0,
+              "p_value": 0.0,
+              "se": 0.00356
+            },
+            {
+              "ci_high": -0.05152,
+              "ci_low": -0.0794,
+              "estimate": -0.06543,
+              "event_time": 1,
+              "p_value": 0.0,
+              "se": 0.00721
+            },
+            {
+              "ci_high": 0.01317,
+              "ci_low": -0.01223,
+              "estimate": -0.0002,
+              "event_time": 2,
+              "p_value": 0.985,
+              "se": 0.00683
+            },
+            {
+              "ci_high": 0.0148,
+              "ci_low": -0.02125,
+              "estimate": -0.00376,
+              "event_time": 3,
+              "p_value": 0.6997,
+              "se": 0.00934
+            },
+            {
+              "ci_high": 0.08137,
+              "ci_low": -0.02276,
+              "estimate": 0.02821,
+              "event_time": 4,
+              "p_value": 0.4925,
+              "se": 0.03082
+            },
+            {
+              "ci_high": 0.04417,
+              "ci_low": -0.12359,
+              "estimate": -0.04052,
+              "event_time": 5,
+              "p_value": 0.4805,
+              "se": 0.04795
+            }
+          ],
+          "n_blocks": 28,
+          "n_states": 53,
+          "outcome": "fair_poor_health",
+          "overall_att": {
+            "ci_high": -0.00098,
+            "ci_low": -0.03535,
+            "estimate": -0.01841,
+            "p_value": 0.041,
+            "se": 0.0087
+          },
+          "pre_trend_test": {
+            "flat": false,
+            "interpretation": "PRE-TRENDS REJECTED, identification suspect",
+            "leads_tested": [
+              -3,
+              -2
+            ],
+            "p_value": 0.0,
+            "wald_stat": 40.2661
+          }
+        },
+        "uninsured": {
+          "bootstrap_reps": 999,
+          "ci_level": 0.95,
+          "control_group": "notyettreated",
+          "estimator": "callaway_santanna",
+          "event_study": [
+            {
+              "ci_high": 0.01953,
+              "ci_low": -0.01357,
+              "estimate": 0.00416,
+              "event_time": -3,
+              "p_value": 0.6496,
+              "se": 0.00849
+            },
+            {
+              "ci_high": 0.00266,
+              "ci_low": -0.01572,
+              "estimate": -0.00664,
+              "event_time": -2,
+              "p_value": 0.1431,
+              "se": 0.00456
+            },
+            {
+              "ci_high": -0.02657,
+              "ci_low": -0.05788,
+              "estimate": -0.04253,
+              "event_time": 0,
+              "p_value": 0.0,
+              "se": 0.00842
+            },
+            {
+              "ci_high": -0.09639,
+              "ci_low": -0.16784,
+              "estimate": -0.13265,
+              "event_time": 1,
+              "p_value": 0.0,
+              "se": 0.0192
+            },
+            {
+              "ci_high": -0.07159,
+              "ci_low": -0.11544,
+              "estimate": -0.09335,
+              "event_time": 2,
+              "p_value": 0.0,
+              "se": 0.01168
+            },
+            {
+              "ci_high": -0.06466,
+              "ci_low": -0.10683,
+              "estimate": -0.08606,
+              "event_time": 3,
+              "p_value": 0.0,
+              "se": 0.01156
+            },
+            {
+              "ci_high": -0.08132,
+              "ci_low": -0.15766,
+              "estimate": -0.1188,
+              "event_time": 4,
+              "p_value": 0.0,
+              "se": 0.02054
+            },
+            {
+              "ci_high": 0.03441,
+              "ci_low": -0.2268,
+              "estimate": -0.09496,
+              "event_time": 5,
+              "p_value": 0.1451,
+              "se": 0.06583
+            }
+          ],
+          "n_blocks": 28,
+          "n_states": 53,
+          "outcome": "uninsured",
+          "overall_att": {
+            "ci_high": -0.0678,
+            "ci_low": -0.12125,
+            "estimate": -0.09412,
+            "p_value": 0.0,
+            "se": 0.01444
+          },
+          "pre_trend_test": {
+            "flat": true,
+            "interpretation": "pre-trends not rejected (identification assumption supported)",
+            "leads_tested": [
+              -3,
+              -2
+            ],
+            "p_value": 0.1862,
+            "wald_stat": 3.3617
+          }
+        }
+      },
+      "seed": 20260615
+    }
+  },
+  "heor": {
+    "base_case": {
+      "dcost_per_adult": 6174.45,
+      "dqaly_per_adult_year": 0.005983,
+      "health_att": {
+        "ci_high": -0.00098,
+        "ci_low": -0.03535,
+        "estimate": -0.01841,
+        "p_value": 0.041,
+        "se": 0.0087
+      },
+      "health_effect_credible": false,
+      "health_effect_significant": true,
+      "health_pretrend_flat": false,
+      "icer": null,
+      "icer_status": "not_demonstrated: self-rated-health effect fails the parallel-trends diagnostic (event-study pre-trend p=0.0); the ATT is not credibly causal, so a cost-per-QALY would overstate the evidence; cost-per-QALY on this outcome is not demonstrated",
+      "utility_delta_fairpoor_to_better": 0.325,
+      "utility_set": "cdc_hrqol"
+    },
+    "budget_impact": {
+      "eligible_population": 17000000,
+      "newly_covered": 11050000,
+      "note": "Stylised: per-adult cost is national MEPS magnitude, not state-matched.",
+      "total_incremental_cost": 68227672500.0,
+      "total_qaly_gain": 66114.9,
+      "uptake_rate": 0.65
+    },
+    "cost_data_mode": "real",
+    "coverage_findings_note": "The most credible causal result is the coverage effect (ATT on uninsurance), whose pre-trends are not rejected. The QALY/ICER overlay rests on the self-rated-health effect, which is statistically significant but FAILS the parallel-trends diagnostic, so it is not treated as credibly causal here, reported honestly rather than converted into a headline ICER.",
+    "data_mode": "real",
+    "seed": 20260615,
+    "thresholds": {
+      "100000": {
+        "cost_effective": false,
+        "nmb": -5576.12
+      },
+      "150000": {
+        "cost_effective": false,
+        "nmb": -5276.96
+      },
+      "50000": {
+        "cost_effective": false,
+        "nmb": -5875.29
+      }
+    }
+  },
+  "meta": {
+    "data_mode": "real",
+    "engine_causal": "python (_csa.py)",
+    "generated_at": "2026-06-23T06:54:34+00:00",
+    "outcomes": {
+      "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+      "fair_poor_health": "Self-rated health fair or poor",
+      "uninsured": "Uninsured (no health coverage)"
+    },
+    "project": "Medicaid-Expansion-HEOR",
+    "seed": 20260615,
+    "synthetic_warning": null,
+    "window": [
+      2011,
+      2019
+    ],
+    "wtp_thresholds": [
+      50000,
+      100000,
+      150000
+    ]
+  },
+  "psa": {
+    "budget_impact_grid": [
+      {
+        "eligible_population": 8500000,
+        "total_cost": 15744847500.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 8500000,
+        "total_cost": 20993130000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 8500000,
+        "total_cost": 26241412500.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 8500000,
+        "total_cost": 31489695000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 8500000,
+        "total_cost": 36737977500.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 8500000,
+        "total_cost": 41986260000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 8500000,
+        "total_cost": 47234542500.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 18893817000.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 25191756000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 31489695000.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 37787634000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 44085573000.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 50383512000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 10200000,
+        "total_cost": 56681451000.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 22042786500.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 29390382000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 36737977500.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 44085573000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 51433168500.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 58780764000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 11900000,
+        "total_cost": 66128359500.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 25191756000.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 33589008000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 41986260000.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 50383512000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 58780764000.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 67178016000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 13600000,
+        "total_cost": 75575268000.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 28340725500.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 37787634000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 47234542500.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 56681451000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 66128359500.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 75575268000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 15300000,
+        "total_cost": 85022176500.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 31489695000.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 41986260000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 52482825000.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 62979390000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 73475955000.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 83972520000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 17000000,
+        "total_cost": 94469085000.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 34638664500.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 46184886000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 57731107500.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 69277329000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 80823550500.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 92369772000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 18700000,
+        "total_cost": 103915993500.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 37787634000.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 50383512000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 62979390000.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 75575268000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 88171146000.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 100767024000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 20400000,
+        "total_cost": 113362902000.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 40936603500.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 54582138000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 68227672500.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 81873207000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 95518741500.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 109164276000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 22100000,
+        "total_cost": 122809810500.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 44085573000.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 58780764000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 73475955000.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 88171146000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 102866337000.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 117561528000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 23800000,
+        "total_cost": 132256719000.0,
+        "uptake": 0.9
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 47234542500.0,
+        "uptake": 0.3
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 62979390000.0,
+        "uptake": 0.4
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 78724237500.0,
+        "uptake": 0.5
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 94469085000.0,
+        "uptake": 0.6
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 110213932500.0,
+        "uptake": 0.7
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 125958780000.0,
+        "uptake": 0.8
+      },
+      {
+        "eligible_population": 25500000,
+        "total_cost": 141703627500.0,
+        "uptake": 0.9
+      }
+    ],
+    "ce_plane": [
+      {
+        "dcost": 6064.9,
+        "dqaly": 0.00469
+      },
+      {
+        "dcost": 5630.4,
+        "dqaly": 0.006116
+      },
+      {
+        "dcost": 6349.6,
+        "dqaly": 0.009804
+      },
+      {
+        "dcost": 5494.2,
+        "dqaly": 0.007266
+      },
+      {
+        "dcost": 6012.7,
+        "dqaly": 0.009313
+      },
+      {
+        "dcost": 6704.7,
+        "dqaly": 0.00927
+      },
+      {
+        "dcost": 5888.3,
+        "dqaly": 0.008364
+      },
+      {
+        "dcost": 6207.7,
+        "dqaly": 0.004637
+      },
+      {
+        "dcost": 5433.3,
+        "dqaly": 0.006985
+      },
+      {
+        "dcost": 5515.1,
+        "dqaly": 0.005078
+      },
+      {
+        "dcost": 6090.4,
+        "dqaly": 0.008059
+      },
+      {
+        "dcost": 6057.4,
+        "dqaly": 0.004724
+      },
+      {
+        "dcost": 6309.8,
+        "dqaly": 0.004187
+      },
+      {
+        "dcost": 6788.1,
+        "dqaly": 0.006227
+      },
+      {
+        "dcost": 6608.0,
+        "dqaly": 0.003623
+      },
+      {
+        "dcost": 5496.0,
+        "dqaly": 0.00654
+      },
+      {
+        "dcost": 5773.1,
+        "dqaly": 0.004696
+      },
+      {
+        "dcost": 6824.5,
+        "dqaly": 0.006054
+      },
+      {
+        "dcost": 4961.5,
+        "dqaly": 0.007282
+      },
+      {
+        "dcost": 6360.8,
+        "dqaly": 0.002936
+      },
+      {
+        "dcost": 6559.3,
+        "dqaly": 0.008508
+      },
+      {
+        "dcost": 6709.8,
+        "dqaly": 0.005164
+      },
+      {
+        "dcost": 6067.8,
+        "dqaly": 0.006418
+      },
+      {
+        "dcost": 5671.5,
+        "dqaly": 0.005431
+      },
+      {
+        "dcost": 6161.7,
+        "dqaly": 0.002318
+      },
+      {
+        "dcost": 5634.7,
+        "dqaly": 0.01061
+      },
+      {
+        "dcost": 5464.3,
+        "dqaly": 0.006262
+      },
+      {
+        "dcost": 6485.4,
+        "dqaly": 0.00053
+      },
+      {
+        "dcost": 5848.2,
+        "dqaly": 0.009186
+      },
+      {
+        "dcost": 6113.3,
+        "dqaly": 0.003386
+      },
+      {
+        "dcost": 6051.7,
+        "dqaly": 0.008169
+      },
+      {
+        "dcost": 6704.2,
+        "dqaly": 0.003835
+      },
+      {
+        "dcost": 6199.7,
+        "dqaly": 0.001184
+      },
+      {
+        "dcost": 6648.1,
+        "dqaly": 0.000957
+      },
+      {
+        "dcost": 5459.4,
+        "dqaly": 0.002866
+      },
+      {
+        "dcost": 6265.5,
+        "dqaly": 0.005501
+      },
+      {
+        "dcost": 6316.4,
+        "dqaly": 0.007852
+      },
+      {
+        "dcost": 6081.6,
+        "dqaly": 0.000389
+      },
+      {
+        "dcost": 6367.6,
+        "dqaly": 0.007988
+      },
+      {
+        "dcost": 6015.2,
+        "dqaly": 0.002109
+      },
+      {
+        "dcost": 6115.2,
+        "dqaly": 0.002038
+      },
+      {
+        "dcost": 5836.6,
+        "dqaly": 0.011004
+      },
+      {
+        "dcost": 6476.2,
+        "dqaly": 0.001108
+      },
+      {
+        "dcost": 6149.1,
+        "dqaly": 0.002751
+      },
+      {
+        "dcost": 5780.9,
+        "dqaly": 0.002342
+      },
+      {
+        "dcost": 6480.7,
+        "dqaly": 0.008591
+      },
+      {
+        "dcost": 6563.5,
+        "dqaly": 0.004427
+      },
+      {
+        "dcost": 6177.2,
+        "dqaly": 0.004205
+      },
+      {
+        "dcost": 6030.0,
+        "dqaly": 0.006011
+      },
+      {
+        "dcost": 6379.1,
+        "dqaly": 0.004904
+      },
+      {
+        "dcost": 6087.7,
+        "dqaly": 0.006828
+      },
+      {
+        "dcost": 5795.2,
+        "dqaly": 0.005737
+      },
+      {
+        "dcost": 7118.0,
+        "dqaly": 0.002663
+      },
+      {
+        "dcost": 6158.6,
+        "dqaly": 0.00513
+      },
+      {
+        "dcost": 6233.3,
+        "dqaly": 0.004767
+      },
+      {
+        "dcost": 6540.7,
+        "dqaly": 0.007408
+      },
+      {
+        "dcost": 5886.4,
+        "dqaly": 0.007504
+      },
+      {
+        "dcost": 5615.1,
+        "dqaly": 0.003697
+      },
+      {
+        "dcost": 6470.4,
+        "dqaly": 0.005372
+      },
+      {
+        "dcost": 6064.4,
+        "dqaly": 0.007407
+      },
+      {
+        "dcost": 6248.2,
+        "dqaly": 0.007932
+      },
+      {
+        "dcost": 6203.8,
+        "dqaly": 0.009034
+      },
+      {
+        "dcost": 5765.9,
+        "dqaly": 0.005132
+      },
+      {
+        "dcost": 5863.6,
+        "dqaly": 0.003237
+      },
+      {
+        "dcost": 5987.4,
+        "dqaly": 0.001897
+      },
+      {
+        "dcost": 6313.6,
+        "dqaly": 0.009792
+      },
+      {
+        "dcost": 6727.9,
+        "dqaly": 0.007165
+      },
+      {
+        "dcost": 6348.8,
+        "dqaly": 0.00848
+      },
+      {
+        "dcost": 6105.1,
+        "dqaly": 0.008326
+      },
+      {
+        "dcost": 5692.2,
+        "dqaly": 0.00548
+      },
+      {
+        "dcost": 5782.8,
+        "dqaly": 0.005084
+      },
+      {
+        "dcost": 6216.3,
+        "dqaly": 0.006084
+      },
+      {
+        "dcost": 6037.9,
+        "dqaly": 0.00657
+      },
+      {
+        "dcost": 5996.0,
+        "dqaly": 0.004641
+      },
+      {
+        "dcost": 6026.6,
+        "dqaly": 0.005933
+      },
+      {
+        "dcost": 5889.8,
+        "dqaly": 0.002234
+      },
+      {
+        "dcost": 5362.8,
+        "dqaly": 0.007416
+      },
+      {
+        "dcost": 7074.2,
+        "dqaly": 0.003137
+      },
+      {
+        "dcost": 7081.2,
+        "dqaly": 0.00673
+      },
+      {
+        "dcost": 6604.7,
+        "dqaly": 0.009348
+      },
+      {
+        "dcost": 6300.8,
+        "dqaly": 0.008653
+      },
+      {
+        "dcost": 6466.0,
+        "dqaly": 0.006051
+      },
+      {
+        "dcost": 6534.7,
+        "dqaly": 0.004628
+      },
+      {
+        "dcost": 5838.4,
+        "dqaly": 0.003797
+      },
+      {
+        "dcost": 5371.6,
+        "dqaly": 0.003722
+      },
+      {
+        "dcost": 5948.6,
+        "dqaly": 0.010525
+      },
+      {
+        "dcost": 6303.6,
+        "dqaly": 0.006926
+      },
+      {
+        "dcost": 6355.2,
+        "dqaly": 0.003521
+      },
+      {
+        "dcost": 6590.6,
+        "dqaly": 0.002041
+      },
+      {
+        "dcost": 6028.1,
+        "dqaly": 0.009316
+      },
+      {
+        "dcost": 6091.3,
+        "dqaly": 0.003516
+      },
+      {
+        "dcost": 6549.8,
+        "dqaly": 0.00689
+      },
+      {
+        "dcost": 6361.4,
+        "dqaly": 0.007149
+      },
+      {
+        "dcost": 5755.8,
+        "dqaly": 0.006471
+      },
+      {
+        "dcost": 5290.6,
+        "dqaly": 0.002375
+      },
+      {
+        "dcost": 6031.0,
+        "dqaly": 0.007741
+      },
+      {
+        "dcost": 5732.7,
+        "dqaly": 0.005418
+      },
+      {
+        "dcost": 6199.9,
+        "dqaly": 0.002972
+      },
+      {
+        "dcost": 6095.0,
+        "dqaly": 0.000898
+      },
+      {
+        "dcost": 6738.1,
+        "dqaly": 0.002017
+      },
+      {
+        "dcost": 6017.2,
+        "dqaly": 0.012765
+      },
+      {
+        "dcost": 6400.3,
+        "dqaly": 0.005155
+      },
+      {
+        "dcost": 5626.4,
+        "dqaly": 0.011043
+      },
+      {
+        "dcost": 5826.5,
+        "dqaly": 0.005193
+      },
+      {
+        "dcost": 6511.1,
+        "dqaly": 0.011723
+      },
+      {
+        "dcost": 6469.9,
+        "dqaly": 0.008685
+      },
+      {
+        "dcost": 6547.1,
+        "dqaly": 0.009441
+      },
+      {
+        "dcost": 6401.7,
+        "dqaly": 0.013585
+      },
+      {
+        "dcost": 6230.1,
+        "dqaly": 0.007876
+      },
+      {
+        "dcost": 5553.9,
+        "dqaly": 0.004261
+      },
+      {
+        "dcost": 5800.5,
+        "dqaly": 0.004863
+      },
+      {
+        "dcost": 6348.7,
+        "dqaly": 0.007098
+      },
+      {
+        "dcost": 6510.6,
+        "dqaly": 0.004088
+      },
+      {
+        "dcost": 6452.2,
+        "dqaly": 0.002386
+      },
+      {
+        "dcost": 5732.0,
+        "dqaly": 0.008097
+      },
+      {
+        "dcost": 6832.9,
+        "dqaly": 0.002987
+      },
+      {
+        "dcost": 5849.8,
+        "dqaly": 0.009159
+      },
+      {
+        "dcost": 6829.7,
+        "dqaly": 0.004757
+      },
+      {
+        "dcost": 6139.0,
+        "dqaly": 0.005395
+      },
+      {
+        "dcost": 6614.8,
+        "dqaly": 0.009337
+      },
+      {
+        "dcost": 6410.9,
+        "dqaly": 0.010372
+      },
+      {
+        "dcost": 6278.6,
+        "dqaly": 0.001416
+      },
+      {
+        "dcost": 6289.5,
+        "dqaly": 0.002726
+      },
+      {
+        "dcost": 6016.8,
+        "dqaly": 0.003144
+      },
+      {
+        "dcost": 5867.3,
+        "dqaly": 0.004784
+      },
+      {
+        "dcost": 6334.3,
+        "dqaly": 0.004525
+      },
+      {
+        "dcost": 7115.6,
+        "dqaly": 0.010965
+      },
+      {
+        "dcost": 6485.7,
+        "dqaly": 0.005315
+      },
+      {
+        "dcost": 6585.8,
+        "dqaly": 0.002485
+      },
+      {
+        "dcost": 6326.2,
+        "dqaly": 0.002583
+      },
+      {
+        "dcost": 6692.6,
+        "dqaly": 0.00402
+      },
+      {
+        "dcost": 6328.8,
+        "dqaly": 0.00502
+      },
+      {
+        "dcost": 6239.1,
+        "dqaly": 0.001718
+      },
+      {
+        "dcost": 7015.9,
+        "dqaly": 0.004538
+      },
+      {
+        "dcost": 5775.8,
+        "dqaly": 0.009376
+      },
+      {
+        "dcost": 6021.5,
+        "dqaly": 0.007371
+      },
+      {
+        "dcost": 6642.9,
+        "dqaly": 0.007121
+      },
+      {
+        "dcost": 6183.3,
+        "dqaly": 0.010474
+      },
+      {
+        "dcost": 6672.0,
+        "dqaly": 0.006187
+      },
+      {
+        "dcost": 6411.8,
+        "dqaly": 0.004597
+      },
+      {
+        "dcost": 6456.8,
+        "dqaly": 0.004995
+      },
+      {
+        "dcost": 6854.6,
+        "dqaly": 0.006373
+      },
+      {
+        "dcost": 6849.0,
+        "dqaly": 0.006882
+      },
+      {
+        "dcost": 6292.5,
+        "dqaly": 0.008098
+      },
+      {
+        "dcost": 6609.5,
+        "dqaly": 0.007462
+      },
+      {
+        "dcost": 6943.1,
+        "dqaly": 0.002711
+      },
+      {
+        "dcost": 6692.6,
+        "dqaly": 0.006333
+      },
+      {
+        "dcost": 5730.5,
+        "dqaly": 0.003289
+      },
+      {
+        "dcost": 5825.0,
+        "dqaly": 0.005833
+      },
+      {
+        "dcost": 7482.2,
+        "dqaly": 0.005876
+      },
+      {
+        "dcost": 5874.6,
+        "dqaly": 0.004627
+      },
+      {
+        "dcost": 5679.7,
+        "dqaly": 0.009371
+      },
+      {
+        "dcost": 6176.9,
+        "dqaly": 0.00363
+      },
+      {
+        "dcost": 5878.9,
+        "dqaly": 0.011686
+      },
+      {
+        "dcost": 6113.5,
+        "dqaly": 0.008465
+      },
+      {
+        "dcost": 5803.1,
+        "dqaly": 0.007983
+      },
+      {
+        "dcost": 5943.2,
+        "dqaly": 0.008086
+      },
+      {
+        "dcost": 6366.7,
+        "dqaly": 0.000956
+      },
+      {
+        "dcost": 5423.7,
+        "dqaly": 0.010881
+      },
+      {
+        "dcost": 6129.4,
+        "dqaly": 0.008815
+      },
+      {
+        "dcost": 5834.2,
+        "dqaly": 0.005987
+      },
+      {
+        "dcost": 6537.6,
+        "dqaly": 0.008087
+      },
+      {
+        "dcost": 6087.7,
+        "dqaly": 0.00513
+      },
+      {
+        "dcost": 6140.9,
+        "dqaly": 0.00559
+      },
+      {
+        "dcost": 6779.6,
+        "dqaly": 0.006418
+      },
+      {
+        "dcost": 6456.6,
+        "dqaly": 0.002492
+      },
+      {
+        "dcost": 6339.6,
+        "dqaly": 0.002392
+      },
+      {
+        "dcost": 6293.0,
+        "dqaly": 0.007366
+      },
+      {
+        "dcost": 6240.2,
+        "dqaly": 0.005802
+      },
+      {
+        "dcost": 6127.0,
+        "dqaly": 0.006446
+      },
+      {
+        "dcost": 6303.6,
+        "dqaly": 0.003115
+      },
+      {
+        "dcost": 6628.8,
+        "dqaly": 0.005844
+      },
+      {
+        "dcost": 6386.4,
+        "dqaly": 0.00636
+      },
+      {
+        "dcost": 6354.6,
+        "dqaly": 0.006452
+      },
+      {
+        "dcost": 5463.3,
+        "dqaly": 0.008363
+      },
+      {
+        "dcost": 5738.5,
+        "dqaly": 0.011555
+      },
+      {
+        "dcost": 5667.9,
+        "dqaly": 0.003646
+      },
+      {
+        "dcost": 6567.0,
+        "dqaly": 0.012385
+      },
+      {
+        "dcost": 5887.7,
+        "dqaly": 0.004403
+      },
+      {
+        "dcost": 6112.6,
+        "dqaly": 0.006634
+      },
+      {
+        "dcost": 6160.1,
+        "dqaly": 0.007702
+      },
+      {
+        "dcost": 6336.6,
+        "dqaly": 0.001045
+      },
+      {
+        "dcost": 6994.1,
+        "dqaly": 0.001276
+      },
+      {
+        "dcost": 5987.4,
+        "dqaly": 0.005238
+      },
+      {
+        "dcost": 5155.7,
+        "dqaly": 0.003287
+      },
+      {
+        "dcost": 5424.0,
+        "dqaly": 0.006099
+      },
+      {
+        "dcost": 5684.9,
+        "dqaly": 0.009021
+      },
+      {
+        "dcost": 5875.1,
+        "dqaly": 0.008053
+      },
+      {
+        "dcost": 5197.1,
+        "dqaly": 0.005506
+      },
+      {
+        "dcost": 5701.3,
+        "dqaly": 0.009147
+      },
+      {
+        "dcost": 6859.7,
+        "dqaly": -0.000914
+      },
+      {
+        "dcost": 5953.2,
+        "dqaly": 0.000974
+      },
+      {
+        "dcost": 6699.8,
+        "dqaly": 0.003058
+      },
+      {
+        "dcost": 6009.6,
+        "dqaly": 0.005769
+      },
+      {
+        "dcost": 5654.7,
+        "dqaly": 0.005041
+      },
+      {
+        "dcost": 6652.8,
+        "dqaly": 0.003092
+      },
+      {
+        "dcost": 5730.3,
+        "dqaly": 0.003153
+      },
+      {
+        "dcost": 6050.5,
+        "dqaly": 0.004608
+      },
+      {
+        "dcost": 5766.3,
+        "dqaly": -0.001086
+      },
+      {
+        "dcost": 6247.8,
+        "dqaly": 0.005127
+      },
+      {
+        "dcost": 6233.1,
+        "dqaly": 0.004418
+      },
+      {
+        "dcost": 6213.0,
+        "dqaly": 0.009542
+      },
+      {
+        "dcost": 6270.7,
+        "dqaly": 0.007754
+      },
+      {
+        "dcost": 6373.3,
+        "dqaly": 0.00708
+      },
+      {
+        "dcost": 4840.2,
+        "dqaly": 0.004824
+      },
+      {
+        "dcost": 6244.1,
+        "dqaly": 0.005526
+      },
+      {
+        "dcost": 6455.6,
+        "dqaly": 0.006182
+      },
+      {
+        "dcost": 5881.3,
+        "dqaly": 0.00536
+      },
+      {
+        "dcost": 5983.4,
+        "dqaly": 0.009772
+      },
+      {
+        "dcost": 6009.6,
+        "dqaly": 0.004109
+      },
+      {
+        "dcost": 6135.7,
+        "dqaly": 0.005844
+      },
+      {
+        "dcost": 5970.0,
+        "dqaly": 0.007787
+      },
+      {
+        "dcost": 5826.7,
+        "dqaly": 0.006672
+      },
+      {
+        "dcost": 5913.5,
+        "dqaly": 0.004687
+      },
+      {
+        "dcost": 6496.6,
+        "dqaly": 0.003216
+      },
+      {
+        "dcost": 5800.1,
+        "dqaly": 0.005082
+      },
+      {
+        "dcost": 6123.2,
+        "dqaly": 0.006502
+      },
+      {
+        "dcost": 6506.8,
+        "dqaly": 0.007619
+      },
+      {
+        "dcost": 5896.0,
+        "dqaly": 0.004093
+      },
+      {
+        "dcost": 6307.7,
+        "dqaly": 0.003081
+      },
+      {
+        "dcost": 5413.1,
+        "dqaly": 0.01447
+      },
+      {
+        "dcost": 5439.0,
+        "dqaly": 0.004756
+      },
+      {
+        "dcost": 6368.3,
+        "dqaly": 0.007718
+      },
+      {
+        "dcost": 5781.9,
+        "dqaly": 0.007835
+      },
+      {
+        "dcost": 6222.5,
+        "dqaly": 0.006996
+      },
+      {
+        "dcost": 6578.2,
+        "dqaly": 0.011404
+      },
+      {
+        "dcost": 5145.2,
+        "dqaly": 0.00938
+      },
+      {
+        "dcost": 6223.8,
+        "dqaly": 0.008508
+      },
+      {
+        "dcost": 5533.0,
+        "dqaly": 0.010551
+      },
+      {
+        "dcost": 6542.3,
+        "dqaly": 0.0023
+      },
+      {
+        "dcost": 6107.8,
+        "dqaly": 0.007367
+      },
+      {
+        "dcost": 6448.2,
+        "dqaly": 0.001844
+      },
+      {
+        "dcost": 6532.3,
+        "dqaly": 0.009141
+      },
+      {
+        "dcost": 6299.6,
+        "dqaly": 0.006642
+      },
+      {
+        "dcost": 5940.5,
+        "dqaly": 0.005449
+      },
+      {
+        "dcost": 6053.3,
+        "dqaly": 0.003853
+      },
+      {
+        "dcost": 5879.8,
+        "dqaly": 0.007311
+      },
+      {
+        "dcost": 6711.2,
+        "dqaly": 0.006895
+      },
+      {
+        "dcost": 5137.0,
+        "dqaly": 0.004325
+      },
+      {
+        "dcost": 6449.7,
+        "dqaly": 0.001784
+      },
+      {
+        "dcost": 6060.4,
+        "dqaly": 0.010315
+      },
+      {
+        "dcost": 5939.2,
+        "dqaly": 0.006201
+      },
+      {
+        "dcost": 5346.5,
+        "dqaly": 0.0042
+      },
+      {
+        "dcost": 6813.9,
+        "dqaly": 0.004203
+      },
+      {
+        "dcost": 5545.9,
+        "dqaly": 0.00818
+      },
+      {
+        "dcost": 6371.4,
+        "dqaly": 0.00483
+      },
+      {
+        "dcost": 6335.0,
+        "dqaly": 0.007246
+      },
+      {
+        "dcost": 6719.0,
+        "dqaly": 0.008087
+      },
+      {
+        "dcost": 6661.8,
+        "dqaly": 0.003011
+      },
+      {
+        "dcost": 6155.3,
+        "dqaly": 0.01118
+      },
+      {
+        "dcost": 6184.5,
+        "dqaly": 0.008271
+      },
+      {
+        "dcost": 6481.1,
+        "dqaly": 0.008731
+      },
+      {
+        "dcost": 5990.1,
+        "dqaly": 0.006403
+      },
+      {
+        "dcost": 6375.2,
+        "dqaly": 0.006372
+      },
+      {
+        "dcost": 6062.2,
+        "dqaly": 0.005304
+      },
+      {
+        "dcost": 6180.5,
+        "dqaly": 0.004979
+      },
+      {
+        "dcost": 6073.1,
+        "dqaly": 0.003835
+      },
+      {
+        "dcost": 6210.1,
+        "dqaly": 0.008786
+      },
+      {
+        "dcost": 6111.0,
+        "dqaly": 0.007602
+      },
+      {
+        "dcost": 7060.7,
+        "dqaly": 0.003648
+      },
+      {
+        "dcost": 6153.0,
+        "dqaly": 0.00838
+      },
+      {
+        "dcost": 5699.2,
+        "dqaly": 0.009283
+      },
+      {
+        "dcost": 6367.0,
+        "dqaly": 0.002785
+      },
+      {
+        "dcost": 6141.8,
+        "dqaly": 0.003599
+      },
+      {
+        "dcost": 6628.5,
+        "dqaly": 0.007157
+      },
+      {
+        "dcost": 6559.2,
+        "dqaly": 0.004098
+      },
+      {
+        "dcost": 5832.6,
+        "dqaly": 0.003004
+      },
+      {
+        "dcost": 6539.8,
+        "dqaly": 0.005359
+      },
+      {
+        "dcost": 6635.2,
+        "dqaly": 0.004715
+      },
+      {
+        "dcost": 6233.0,
+        "dqaly": 0.006991
+      },
+      {
+        "dcost": 6463.6,
+        "dqaly": 0.001265
+      },
+      {
+        "dcost": 5851.0,
+        "dqaly": 0.002408
+      },
+      {
+        "dcost": 6539.0,
+        "dqaly": 0.007897
+      },
+      {
+        "dcost": 6913.0,
+        "dqaly": 0.004586
+      },
+      {
+        "dcost": 6582.1,
+        "dqaly": 0.008005
+      },
+      {
+        "dcost": 5850.6,
+        "dqaly": 0.001661
+      },
+      {
+        "dcost": 6240.4,
+        "dqaly": 0.006663
+      },
+      {
+        "dcost": 6444.6,
+        "dqaly": 0.004481
+      },
+      {
+        "dcost": 6716.3,
+        "dqaly": 0.004263
+      },
+      {
+        "dcost": 6800.2,
+        "dqaly": 0.004711
+      },
+      {
+        "dcost": 6293.2,
+        "dqaly": 0.00338
+      },
+      {
+        "dcost": 6215.1,
+        "dqaly": 0.003995
+      },
+      {
+        "dcost": 6323.6,
+        "dqaly": 0.002642
+      },
+      {
+        "dcost": 6693.5,
+        "dqaly": -3.5e-05
+      },
+      {
+        "dcost": 5251.9,
+        "dqaly": 0.004734
+      },
+      {
+        "dcost": 6014.5,
+        "dqaly": 0.003383
+      },
+      {
+        "dcost": 6117.3,
+        "dqaly": 0.008553
+      },
+      {
+        "dcost": 6036.1,
+        "dqaly": 0.005348
+      },
+      {
+        "dcost": 5650.7,
+        "dqaly": -0.000391
+      },
+      {
+        "dcost": 6364.1,
+        "dqaly": 0.001743
+      },
+      {
+        "dcost": 6705.0,
+        "dqaly": 0.001685
+      },
+      {
+        "dcost": 6470.8,
+        "dqaly": 0.005971
+      },
+      {
+        "dcost": 5377.3,
+        "dqaly": 0.0047
+      },
+      {
+        "dcost": 5530.8,
+        "dqaly": 0.004754
+      },
+      {
+        "dcost": 6470.8,
+        "dqaly": 0.006639
+      },
+      {
+        "dcost": 6236.8,
+        "dqaly": 0.005234
+      },
+      {
+        "dcost": 6052.5,
+        "dqaly": 0.006158
+      },
+      {
+        "dcost": 6028.3,
+        "dqaly": 0.011812
+      },
+      {
+        "dcost": 6286.3,
+        "dqaly": 0.004644
+      },
+      {
+        "dcost": 5968.9,
+        "dqaly": 0.001275
+      },
+      {
+        "dcost": 6431.9,
+        "dqaly": 0.004219
+      },
+      {
+        "dcost": 5841.4,
+        "dqaly": 0.006822
+      },
+      {
+        "dcost": 6473.6,
+        "dqaly": 0.008986
+      },
+      {
+        "dcost": 6005.4,
+        "dqaly": 0.005717
+      },
+      {
+        "dcost": 6222.9,
+        "dqaly": 0.006083
+      },
+      {
+        "dcost": 5581.2,
+        "dqaly": 0.005609
+      },
+      {
+        "dcost": 5814.4,
+        "dqaly": 0.00714
+      },
+      {
+        "dcost": 6418.4,
+        "dqaly": 0.004852
+      },
+      {
+        "dcost": 5328.4,
+        "dqaly": 0.010613
+      },
+      {
+        "dcost": 5681.4,
+        "dqaly": 0.005633
+      },
+      {
+        "dcost": 5835.3,
+        "dqaly": 0.008119
+      },
+      {
+        "dcost": 7018.9,
+        "dqaly": 0.004669
+      },
+      {
+        "dcost": 5657.2,
+        "dqaly": 0.005626
+      },
+      {
+        "dcost": 5883.3,
+        "dqaly": 0.009731
+      },
+      {
+        "dcost": 5536.1,
+        "dqaly": 0.005966
+      },
+      {
+        "dcost": 6244.3,
+        "dqaly": 0.013436
+      },
+      {
+        "dcost": 5483.7,
+        "dqaly": 0.004804
+      },
+      {
+        "dcost": 5939.2,
+        "dqaly": 0.006959
+      },
+      {
+        "dcost": 5937.9,
+        "dqaly": 0.005891
+      },
+      {
+        "dcost": 6307.5,
+        "dqaly": 0.003151
+      },
+      {
+        "dcost": 6618.2,
+        "dqaly": 0.009901
+      },
+      {
+        "dcost": 5825.4,
+        "dqaly": 0.007914
+      },
+      {
+        "dcost": 5981.5,
+        "dqaly": 0.006283
+      },
+      {
+        "dcost": 6594.4,
+        "dqaly": 0.008408
+      },
+      {
+        "dcost": 6391.9,
+        "dqaly": 0.005339
+      },
+      {
+        "dcost": 6241.8,
+        "dqaly": 0.005046
+      },
+      {
+        "dcost": 5012.7,
+        "dqaly": 0.004957
+      },
+      {
+        "dcost": 5854.5,
+        "dqaly": 0.001343
+      },
+      {
+        "dcost": 6007.8,
+        "dqaly": 0.002334
+      },
+      {
+        "dcost": 6240.6,
+        "dqaly": 0.000633
+      },
+      {
+        "dcost": 5841.0,
+        "dqaly": 0.006749
+      },
+      {
+        "dcost": 6024.6,
+        "dqaly": 0.003056
+      },
+      {
+        "dcost": 6265.2,
+        "dqaly": 0.004293
+      },
+      {
+        "dcost": 6217.1,
+        "dqaly": 0.003184
+      },
+      {
+        "dcost": 6153.7,
+        "dqaly": 0.007763
+      },
+      {
+        "dcost": 5475.1,
+        "dqaly": 0.003649
+      },
+      {
+        "dcost": 6596.4,
+        "dqaly": 0.007016
+      },
+      {
+        "dcost": 6735.9,
+        "dqaly": 0.007287
+      },
+      {
+        "dcost": 5659.3,
+        "dqaly": 0.001672
+      },
+      {
+        "dcost": 6171.5,
+        "dqaly": 0.007139
+      },
+      {
+        "dcost": 6955.9,
+        "dqaly": 0.007256
+      },
+      {
+        "dcost": 5931.3,
+        "dqaly": 0.007114
+      },
+      {
+        "dcost": 6022.6,
+        "dqaly": 0.003425
+      },
+      {
+        "dcost": 6461.8,
+        "dqaly": 0.006152
+      },
+      {
+        "dcost": 6684.7,
+        "dqaly": 0.002715
+      },
+      {
+        "dcost": 6009.5,
+        "dqaly": 0.003392
+      },
+      {
+        "dcost": 6061.7,
+        "dqaly": 0.01141
+      },
+      {
+        "dcost": 6458.1,
+        "dqaly": 0.006246
+      },
+      {
+        "dcost": 6705.2,
+        "dqaly": 0.006499
+      },
+      {
+        "dcost": 6852.1,
+        "dqaly": 0.003571
+      },
+      {
+        "dcost": 6354.5,
+        "dqaly": -0.001097
+      },
+      {
+        "dcost": 5581.8,
+        "dqaly": 0.006655
+      },
+      {
+        "dcost": 6271.6,
+        "dqaly": 0.005415
+      },
+      {
+        "dcost": 5928.5,
+        "dqaly": -0.000824
+      },
+      {
+        "dcost": 6647.3,
+        "dqaly": 0.009132
+      },
+      {
+        "dcost": 5548.8,
+        "dqaly": 0.004814
+      },
+      {
+        "dcost": 6130.4,
+        "dqaly": 0.003649
+      },
+      {
+        "dcost": 6606.7,
+        "dqaly": 0.009539
+      },
+      {
+        "dcost": 6392.5,
+        "dqaly": 0.007324
+      },
+      {
+        "dcost": 6369.2,
+        "dqaly": 0.004185
+      },
+      {
+        "dcost": 6538.2,
+        "dqaly": 0.006279
+      },
+      {
+        "dcost": 6372.3,
+        "dqaly": 0.00071
+      },
+      {
+        "dcost": 6087.8,
+        "dqaly": 0.008163
+      },
+      {
+        "dcost": 6399.5,
+        "dqaly": 0.001417
+      },
+      {
+        "dcost": 6519.3,
+        "dqaly": 0.005091
+      },
+      {
+        "dcost": 6861.8,
+        "dqaly": 0.008434
+      },
+      {
+        "dcost": 5667.0,
+        "dqaly": 0.00382
+      },
+      {
+        "dcost": 6616.4,
+        "dqaly": 0.010587
+      },
+      {
+        "dcost": 6174.9,
+        "dqaly": 0.008033
+      },
+      {
+        "dcost": 6254.4,
+        "dqaly": 0.006697
+      },
+      {
+        "dcost": 6246.7,
+        "dqaly": 0.007506
+      },
+      {
+        "dcost": 6238.9,
+        "dqaly": 0.001677
+      },
+      {
+        "dcost": 6093.2,
+        "dqaly": 0.006672
+      },
+      {
+        "dcost": 6218.3,
+        "dqaly": 0.000121
+      },
+      {
+        "dcost": 5813.7,
+        "dqaly": 0.001677
+      },
+      {
+        "dcost": 6153.6,
+        "dqaly": 0.002055
+      },
+      {
+        "dcost": 5681.4,
+        "dqaly": 0.003986
+      },
+      {
+        "dcost": 5861.5,
+        "dqaly": 0.006083
+      },
+      {
+        "dcost": 6341.1,
+        "dqaly": 0.007458
+      },
+      {
+        "dcost": 5780.7,
+        "dqaly": 0.004922
+      },
+      {
+        "dcost": 5903.1,
+        "dqaly": 0.005644
+      },
+      {
+        "dcost": 5966.4,
+        "dqaly": 0.007892
+      },
+      {
+        "dcost": 6447.9,
+        "dqaly": 0.005764
+      },
+      {
+        "dcost": 6431.9,
+        "dqaly": 0.001364
+      },
+      {
+        "dcost": 6261.4,
+        "dqaly": 0.007024
+      },
+      {
+        "dcost": 5851.1,
+        "dqaly": 0.001621
+      },
+      {
+        "dcost": 5644.1,
+        "dqaly": 0.005613
+      },
+      {
+        "dcost": 5723.3,
+        "dqaly": 0.009668
+      },
+      {
+        "dcost": 5935.8,
+        "dqaly": 0.012161
+      },
+      {
+        "dcost": 5892.9,
+        "dqaly": 0.00332
+      },
+      {
+        "dcost": 5725.3,
+        "dqaly": 0.006357
+      },
+      {
+        "dcost": 6192.8,
+        "dqaly": 0.003279
+      },
+      {
+        "dcost": 5955.9,
+        "dqaly": 0.003364
+      },
+      {
+        "dcost": 6540.5,
+        "dqaly": 0.007349
+      },
+      {
+        "dcost": 6022.1,
+        "dqaly": 0.007132
+      },
+      {
+        "dcost": 5732.6,
+        "dqaly": 0.004176
+      },
+      {
+        "dcost": 6449.8,
+        "dqaly": 0.001097
+      },
+      {
+        "dcost": 6971.4,
+        "dqaly": 0.002686
+      },
+      {
+        "dcost": 5756.1,
+        "dqaly": 0.007518
+      },
+      {
+        "dcost": 6515.3,
+        "dqaly": -0.000669
+      },
+      {
+        "dcost": 5374.4,
+        "dqaly": 0.00909
+      },
+      {
+        "dcost": 6249.0,
+        "dqaly": 0.000493
+      },
+      {
+        "dcost": 6561.9,
+        "dqaly": 0.00807
+      },
+      {
+        "dcost": 6050.2,
+        "dqaly": 0.006107
+      },
+      {
+        "dcost": 5979.3,
+        "dqaly": 0.007066
+      },
+      {
+        "dcost": 5819.8,
+        "dqaly": -0.000971
+      },
+      {
+        "dcost": 6318.6,
+        "dqaly": 0.009096
+      },
+      {
+        "dcost": 6345.4,
+        "dqaly": 0.0012
+      },
+      {
+        "dcost": 6390.9,
+        "dqaly": 0.005797
+      },
+      {
+        "dcost": 6295.9,
+        "dqaly": 0.009894
+      },
+      {
+        "dcost": 6399.2,
+        "dqaly": 0.004433
+      },
+      {
+        "dcost": 5425.2,
+        "dqaly": 0.005886
+      },
+      {
+        "dcost": 6505.9,
+        "dqaly": 0.010005
+      },
+      {
+        "dcost": 5941.2,
+        "dqaly": 0.005597
+      },
+      {
+        "dcost": 6334.4,
+        "dqaly": 0.00541
+      },
+      {
+        "dcost": 5870.6,
+        "dqaly": 0.00764
+      },
+      {
+        "dcost": 6194.5,
+        "dqaly": 0.006361
+      },
+      {
+        "dcost": 6479.7,
+        "dqaly": 0.005516
+      },
+      {
+        "dcost": 6103.8,
+        "dqaly": 0.002299
+      },
+      {
+        "dcost": 6607.5,
+        "dqaly": 0.004179
+      },
+      {
+        "dcost": 6210.4,
+        "dqaly": 0.012487
+      },
+      {
+        "dcost": 5586.2,
+        "dqaly": 0.005491
+      },
+      {
+        "dcost": 6159.3,
+        "dqaly": 0.005245
+      },
+      {
+        "dcost": 5906.9,
+        "dqaly": 0.006881
+      },
+      {
+        "dcost": 6272.1,
+        "dqaly": 0.009425
+      },
+      {
+        "dcost": 6720.6,
+        "dqaly": 0.010313
+      },
+      {
+        "dcost": 5670.7,
+        "dqaly": 0.005192
+      },
+      {
+        "dcost": 6171.3,
+        "dqaly": 0.008803
+      },
+      {
+        "dcost": 6169.7,
+        "dqaly": 0.003823
+      },
+      {
+        "dcost": 6133.2,
+        "dqaly": 0.005984
+      },
+      {
+        "dcost": 5748.1,
+        "dqaly": 0.008592
+      },
+      {
+        "dcost": 6541.1,
+        "dqaly": 0.008946
+      },
+      {
+        "dcost": 6395.4,
+        "dqaly": 0.008295
+      },
+      {
+        "dcost": 6262.3,
+        "dqaly": 0.004529
+      },
+      {
+        "dcost": 5557.4,
+        "dqaly": 0.010724
+      },
+      {
+        "dcost": 6087.4,
+        "dqaly": 0.002803
+      },
+      {
+        "dcost": 5406.9,
+        "dqaly": 0.006315
+      },
+      {
+        "dcost": 7071.1,
+        "dqaly": 0.002132
+      },
+      {
+        "dcost": 6203.2,
+        "dqaly": 0.005739
+      },
+      {
+        "dcost": 6072.9,
+        "dqaly": 0.009735
+      },
+      {
+        "dcost": 6156.3,
+        "dqaly": 0.006608
+      },
+      {
+        "dcost": 6137.1,
+        "dqaly": 0.012404
+      },
+      {
+        "dcost": 6684.1,
+        "dqaly": 0.007617
+      },
+      {
+        "dcost": 6563.9,
+        "dqaly": 0.002842
+      },
+      {
+        "dcost": 6002.0,
+        "dqaly": 0.006315
+      },
+      {
+        "dcost": 6827.4,
+        "dqaly": 0.005805
+      },
+      {
+        "dcost": 6065.9,
+        "dqaly": 0.008262
+      },
+      {
+        "dcost": 6238.1,
+        "dqaly": 0.001685
+      },
+      {
+        "dcost": 5515.1,
+        "dqaly": 0.006719
+      },
+      {
+        "dcost": 6177.6,
+        "dqaly": 0.005459
+      },
+      {
+        "dcost": 6431.3,
+        "dqaly": 0.010969
+      },
+      {
+        "dcost": 6094.9,
+        "dqaly": 0.005575
+      },
+      {
+        "dcost": 5690.9,
+        "dqaly": 0.005156
+      },
+      {
+        "dcost": 6624.4,
+        "dqaly": 0.001014
+      },
+      {
+        "dcost": 5557.9,
+        "dqaly": 0.003347
+      },
+      {
+        "dcost": 5619.3,
+        "dqaly": 0.004111
+      },
+      {
+        "dcost": 5899.8,
+        "dqaly": 0.003788
+      },
+      {
+        "dcost": 5973.6,
+        "dqaly": 0.009182
+      },
+      {
+        "dcost": 6527.6,
+        "dqaly": 0.008491
+      },
+      {
+        "dcost": 5601.5,
+        "dqaly": 0.005288
+      },
+      {
+        "dcost": 6534.8,
+        "dqaly": 0.004526
+      },
+      {
+        "dcost": 5471.3,
+        "dqaly": 0.006517
+      },
+      {
+        "dcost": 6169.3,
+        "dqaly": 0.007628
+      },
+      {
+        "dcost": 6003.0,
+        "dqaly": 0.006777
+      },
+      {
+        "dcost": 7266.3,
+        "dqaly": 0.006475
+      },
+      {
+        "dcost": 6129.0,
+        "dqaly": 0.000667
+      },
+      {
+        "dcost": 5844.4,
+        "dqaly": 0.008361
+      },
+      {
+        "dcost": 6600.9,
+        "dqaly": 0.008342
+      },
+      {
+        "dcost": 6542.4,
+        "dqaly": 0.001085
+      },
+      {
+        "dcost": 6044.9,
+        "dqaly": 0.008579
+      },
+      {
+        "dcost": 6143.5,
+        "dqaly": 0.002806
+      },
+      {
+        "dcost": 6798.6,
+        "dqaly": 0.00551
+      },
+      {
+        "dcost": 6326.9,
+        "dqaly": 0.006552
+      },
+      {
+        "dcost": 6833.5,
+        "dqaly": 0.007721
+      },
+      {
+        "dcost": 6080.1,
+        "dqaly": -0.001967
+      },
+      {
+        "dcost": 5907.1,
+        "dqaly": 0.003549
+      },
+      {
+        "dcost": 6404.6,
+        "dqaly": 0.003065
+      },
+      {
+        "dcost": 6284.8,
+        "dqaly": 0.010635
+      },
+      {
+        "dcost": 6057.0,
+        "dqaly": 0.004477
+      },
+      {
+        "dcost": 6051.6,
+        "dqaly": 0.006969
+      },
+      {
+        "dcost": 5881.0,
+        "dqaly": 0.003401
+      },
+      {
+        "dcost": 6395.5,
+        "dqaly": 0.005387
+      },
+      {
+        "dcost": 6336.0,
+        "dqaly": 0.002837
+      },
+      {
+        "dcost": 6424.0,
+        "dqaly": 0.005011
+      },
+      {
+        "dcost": 6500.7,
+        "dqaly": 0.004061
+      },
+      {
+        "dcost": 5490.2,
+        "dqaly": 0.001179
+      },
+      {
+        "dcost": 6092.0,
+        "dqaly": 0.005393
+      },
+      {
+        "dcost": 5915.9,
+        "dqaly": 0.009725
+      },
+      {
+        "dcost": 5968.4,
+        "dqaly": 0.005158
+      },
+      {
+        "dcost": 5933.0,
+        "dqaly": 0.008359
+      },
+      {
+        "dcost": 5883.0,
+        "dqaly": 0.00454
+      },
+      {
+        "dcost": 6207.9,
+        "dqaly": 0.008586
+      },
+      {
+        "dcost": 6146.2,
+        "dqaly": 0.004732
+      },
+      {
+        "dcost": 5878.1,
+        "dqaly": 0.005166
+      },
+      {
+        "dcost": 6603.5,
+        "dqaly": 0.008684
+      },
+      {
+        "dcost": 6221.1,
+        "dqaly": 0.013225
+      },
+      {
+        "dcost": 6953.0,
+        "dqaly": 0.003953
+      },
+      {
+        "dcost": 5114.4,
+        "dqaly": 0.010724
+      },
+      {
+        "dcost": 6309.0,
+        "dqaly": 0.002285
+      },
+      {
+        "dcost": 6155.9,
+        "dqaly": 0.003828
+      },
+      {
+        "dcost": 5963.4,
+        "dqaly": 0.005399
+      },
+      {
+        "dcost": 6194.2,
+        "dqaly": 0.002647
+      },
+      {
+        "dcost": 6210.2,
+        "dqaly": 0.011962
+      },
+      {
+        "dcost": 6466.6,
+        "dqaly": 0.008258
+      },
+      {
+        "dcost": 6288.4,
+        "dqaly": 0.009316
+      },
+      {
+        "dcost": 6162.4,
+        "dqaly": 0.003606
+      },
+      {
+        "dcost": 6489.5,
+        "dqaly": 0.007504
+      },
+      {
+        "dcost": 5203.5,
+        "dqaly": 0.006285
+      },
+      {
+        "dcost": 6075.3,
+        "dqaly": 0.005724
+      },
+      {
+        "dcost": 5380.3,
+        "dqaly": 0.00261
+      },
+      {
+        "dcost": 6359.9,
+        "dqaly": 0.002738
+      },
+      {
+        "dcost": 6544.1,
+        "dqaly": 0.001919
+      },
+      {
+        "dcost": 5891.2,
+        "dqaly": 0.008353
+      },
+      {
+        "dcost": 7271.9,
+        "dqaly": 0.006243
+      },
+      {
+        "dcost": 5747.0,
+        "dqaly": 0.006193
+      },
+      {
+        "dcost": 5626.3,
+        "dqaly": 0.002042
+      },
+      {
+        "dcost": 6498.5,
+        "dqaly": 0.004161
+      },
+      {
+        "dcost": 5729.1,
+        "dqaly": 0.004752
+      },
+      {
+        "dcost": 5951.1,
+        "dqaly": 0.005467
+      },
+      {
+        "dcost": 6258.7,
+        "dqaly": 0.000347
+      },
+      {
+        "dcost": 6484.5,
+        "dqaly": 0.003759
+      },
+      {
+        "dcost": 6173.6,
+        "dqaly": 0.000783
+      },
+      {
+        "dcost": 6643.0,
+        "dqaly": 0.004592
+      },
+      {
+        "dcost": 6643.6,
+        "dqaly": -0.00079
+      },
+      {
+        "dcost": 5882.6,
+        "dqaly": 0.007088
+      },
+      {
+        "dcost": 6036.1,
+        "dqaly": 0.005316
+      },
+      {
+        "dcost": 6626.5,
+        "dqaly": 0.00553
+      },
+      {
+        "dcost": 6703.9,
+        "dqaly": 0.009984
+      },
+      {
+        "dcost": 5726.4,
+        "dqaly": 0.007159
+      },
+      {
+        "dcost": 6285.2,
+        "dqaly": 0.00777
+      },
+      {
+        "dcost": 5967.7,
+        "dqaly": 0.003168
+      },
+      {
+        "dcost": 5948.6,
+        "dqaly": 0.001434
+      },
+      {
+        "dcost": 5612.3,
+        "dqaly": 0.003413
+      },
+      {
+        "dcost": 6198.3,
+        "dqaly": 0.004834
+      },
+      {
+        "dcost": 6053.7,
+        "dqaly": 0.002577
+      },
+      {
+        "dcost": 6652.6,
+        "dqaly": 0.002603
+      },
+      {
+        "dcost": 5948.5,
+        "dqaly": 0.006766
+      },
+      {
+        "dcost": 6330.5,
+        "dqaly": 0.003667
+      },
+      {
+        "dcost": 5998.8,
+        "dqaly": 0.006834
+      },
+      {
+        "dcost": 6731.8,
+        "dqaly": 0.006896
+      },
+      {
+        "dcost": 5780.2,
+        "dqaly": 0.008907
+      },
+      {
+        "dcost": 6495.6,
+        "dqaly": 0.006458
+      },
+      {
+        "dcost": 6501.5,
+        "dqaly": 0.007021
+      },
+      {
+        "dcost": 5739.3,
+        "dqaly": 0.005536
+      },
+      {
+        "dcost": 5755.7,
+        "dqaly": 0.004837
+      },
+      {
+        "dcost": 6567.4,
+        "dqaly": 0.004821
+      },
+      {
+        "dcost": 5665.8,
+        "dqaly": 0.010396
+      },
+      {
+        "dcost": 5902.4,
+        "dqaly": 0.003407
+      },
+      {
+        "dcost": 5775.0,
+        "dqaly": 0.003717
+      },
+      {
+        "dcost": 6367.6,
+        "dqaly": 0.002968
+      },
+      {
+        "dcost": 6120.9,
+        "dqaly": 0.002906
+      },
+      {
+        "dcost": 6758.6,
+        "dqaly": 0.005835
+      },
+      {
+        "dcost": 6228.3,
+        "dqaly": 0.008276
+      },
+      {
+        "dcost": 5565.0,
+        "dqaly": 0.007403
+      },
+      {
+        "dcost": 5676.5,
+        "dqaly": 0.006244
+      },
+      {
+        "dcost": 6205.7,
+        "dqaly": 0.001233
+      },
+      {
+        "dcost": 6379.5,
+        "dqaly": 0.004211
+      },
+      {
+        "dcost": 6050.0,
+        "dqaly": 0.006152
+      },
+      {
+        "dcost": 6407.6,
+        "dqaly": 0.002341
+      },
+      {
+        "dcost": 6074.3,
+        "dqaly": 0.002863
+      },
+      {
+        "dcost": 5971.4,
+        "dqaly": 0.004802
+      },
+      {
+        "dcost": 6366.8,
+        "dqaly": 0.003495
+      },
+      {
+        "dcost": 6054.8,
+        "dqaly": 0.008758
+      },
+      {
+        "dcost": 5910.9,
+        "dqaly": 0.007086
+      },
+      {
+        "dcost": 6666.4,
+        "dqaly": 0.002715
+      },
+      {
+        "dcost": 5778.8,
+        "dqaly": 0.008622
+      },
+      {
+        "dcost": 5801.3,
+        "dqaly": 0.007741
+      },
+      {
+        "dcost": 6061.5,
+        "dqaly": 0.006522
+      },
+      {
+        "dcost": 5761.8,
+        "dqaly": 0.005045
+      },
+      {
+        "dcost": 6289.2,
+        "dqaly": 0.005059
+      },
+      {
+        "dcost": 6349.6,
+        "dqaly": 0.010379
+      },
+      {
+        "dcost": 6389.4,
+        "dqaly": 0.006077
+      },
+      {
+        "dcost": 6131.5,
+        "dqaly": 0.009436
+      },
+      {
+        "dcost": 5590.7,
+        "dqaly": 0.009702
+      },
+      {
+        "dcost": 6632.5,
+        "dqaly": 0.007737
+      },
+      {
+        "dcost": 6135.2,
+        "dqaly": 0.011555
+      },
+      {
+        "dcost": 5951.5,
+        "dqaly": 0.005322
+      },
+      {
+        "dcost": 6179.3,
+        "dqaly": 0.005545
+      },
+      {
+        "dcost": 7069.6,
+        "dqaly": 0.008575
+      },
+      {
+        "dcost": 6880.7,
+        "dqaly": 0.00464
+      },
+      {
+        "dcost": 5949.4,
+        "dqaly": 0.006139
+      },
+      {
+        "dcost": 6127.9,
+        "dqaly": 0.002678
+      },
+      {
+        "dcost": 6543.3,
+        "dqaly": 0.006141
+      },
+      {
+        "dcost": 6156.6,
+        "dqaly": 0.004544
+      },
+      {
+        "dcost": 6921.2,
+        "dqaly": 0.010229
+      },
+      {
+        "dcost": 6155.0,
+        "dqaly": 0.003582
+      },
+      {
+        "dcost": 6791.3,
+        "dqaly": 0.004949
+      },
+      {
+        "dcost": 6473.0,
+        "dqaly": 0.00545
+      },
+      {
+        "dcost": 6248.3,
+        "dqaly": 0.009539
+      },
+      {
+        "dcost": 5400.2,
+        "dqaly": 0.006375
+      },
+      {
+        "dcost": 5639.3,
+        "dqaly": 0.006032
+      },
+      {
+        "dcost": 6190.5,
+        "dqaly": 0.006789
+      },
+      {
+        "dcost": 5699.9,
+        "dqaly": 0.002151
+      },
+      {
+        "dcost": 6498.7,
+        "dqaly": 0.012113
+      },
+      {
+        "dcost": 6007.5,
+        "dqaly": 0.002544
+      },
+      {
+        "dcost": 6394.7,
+        "dqaly": 0.000752
+      },
+      {
+        "dcost": 7097.3,
+        "dqaly": 0.00756
+      },
+      {
+        "dcost": 6030.7,
+        "dqaly": 0.008082
+      },
+      {
+        "dcost": 6351.8,
+        "dqaly": 0.003996
+      },
+      {
+        "dcost": 6406.3,
+        "dqaly": 0.008431
+      },
+      {
+        "dcost": 6000.1,
+        "dqaly": 0.009413
+      },
+      {
+        "dcost": 6209.7,
+        "dqaly": 0.002458
+      },
+      {
+        "dcost": 5814.8,
+        "dqaly": 0.00908
+      },
+      {
+        "dcost": 6157.0,
+        "dqaly": 0.005305
+      },
+      {
+        "dcost": 5904.8,
+        "dqaly": 0.008624
+      },
+      {
+        "dcost": 6475.7,
+        "dqaly": 0.007365
+      },
+      {
+        "dcost": 5543.7,
+        "dqaly": 0.006258
+      },
+      {
+        "dcost": 6601.7,
+        "dqaly": 0.004271
+      },
+      {
+        "dcost": 5923.1,
+        "dqaly": 0.007513
+      },
+      {
+        "dcost": 5637.3,
+        "dqaly": 0.01393
+      },
+      {
+        "dcost": 6739.9,
+        "dqaly": 0.003285
+      },
+      {
+        "dcost": 6475.9,
+        "dqaly": 0.004687
+      },
+      {
+        "dcost": 6373.6,
+        "dqaly": -0.00076
+      },
+      {
+        "dcost": 6256.1,
+        "dqaly": 0.011877
+      },
+      {
+        "dcost": 6287.4,
+        "dqaly": 0.005201
+      },
+      {
+        "dcost": 6338.9,
+        "dqaly": 0.002212
+      },
+      {
+        "dcost": 6126.2,
+        "dqaly": 0.005157
+      },
+      {
+        "dcost": 6264.4,
+        "dqaly": 0.010736
+      },
+      {
+        "dcost": 6831.9,
+        "dqaly": 0.005998
+      },
+      {
+        "dcost": 6550.6,
+        "dqaly": 0.008618
+      },
+      {
+        "dcost": 6503.1,
+        "dqaly": 0.006877
+      },
+      {
+        "dcost": 6725.3,
+        "dqaly": 0.008254
+      },
+      {
+        "dcost": 7374.5,
+        "dqaly": 0.009644
+      },
+      {
+        "dcost": 6065.3,
+        "dqaly": 0.005372
+      },
+      {
+        "dcost": 6843.8,
+        "dqaly": 0.006249
+      },
+      {
+        "dcost": 6694.2,
+        "dqaly": 0.001896
+      },
+      {
+        "dcost": 5839.3,
+        "dqaly": 0.005375
+      },
+      {
+        "dcost": 6862.4,
+        "dqaly": 0.004024
+      },
+      {
+        "dcost": 5973.4,
+        "dqaly": 0.002415
+      },
+      {
+        "dcost": 6522.3,
+        "dqaly": 0.003073
+      },
+      {
+        "dcost": 6392.6,
+        "dqaly": 0.004478
+      },
+      {
+        "dcost": 6285.5,
+        "dqaly": 0.003714
+      },
+      {
+        "dcost": 6211.9,
+        "dqaly": 0.001327
+      },
+      {
+        "dcost": 5931.8,
+        "dqaly": 0.006014
+      },
+      {
+        "dcost": 6930.4,
+        "dqaly": -0.000116
+      },
+      {
+        "dcost": 6769.4,
+        "dqaly": 0.002843
+      },
+      {
+        "dcost": 6413.2,
+        "dqaly": 0.001683
+      },
+      {
+        "dcost": 5656.2,
+        "dqaly": 0.004005
+      },
+      {
+        "dcost": 6328.1,
+        "dqaly": 0.002481
+      },
+      {
+        "dcost": 6080.9,
+        "dqaly": 0.007606
+      },
+      {
+        "dcost": 6585.3,
+        "dqaly": 0.004104
+      },
+      {
+        "dcost": 6620.4,
+        "dqaly": 0.006591
+      },
+      {
+        "dcost": 5809.8,
+        "dqaly": 0.004918
+      },
+      {
+        "dcost": 5697.4,
+        "dqaly": 0.005049
+      },
+      {
+        "dcost": 6567.3,
+        "dqaly": 0.008698
+      },
+      {
+        "dcost": 5817.2,
+        "dqaly": 0.006652
+      },
+      {
+        "dcost": 6307.8,
+        "dqaly": 0.007378
+      },
+      {
+        "dcost": 5973.0,
+        "dqaly": 0.007294
+      },
+      {
+        "dcost": 6361.6,
+        "dqaly": 0.007946
+      },
+      {
+        "dcost": 6612.5,
+        "dqaly": 0.003554
+      },
+      {
+        "dcost": 6041.2,
+        "dqaly": 0.007813
+      },
+      {
+        "dcost": 6532.1,
+        "dqaly": 0.005504
+      },
+      {
+        "dcost": 6222.3,
+        "dqaly": 0.005688
+      },
+      {
+        "dcost": 6635.7,
+        "dqaly": 0.003332
+      },
+      {
+        "dcost": 6531.9,
+        "dqaly": 0.003134
+      },
+      {
+        "dcost": 6140.0,
+        "dqaly": 0.005847
+      },
+      {
+        "dcost": 6339.2,
+        "dqaly": 0.004747
+      },
+      {
+        "dcost": 6479.9,
+        "dqaly": 0.003347
+      },
+      {
+        "dcost": 6370.3,
+        "dqaly": 0.008547
+      },
+      {
+        "dcost": 6299.6,
+        "dqaly": 0.009295
+      },
+      {
+        "dcost": 6603.1,
+        "dqaly": 0.004213
+      },
+      {
+        "dcost": 5623.5,
+        "dqaly": 0.005062
+      },
+      {
+        "dcost": 5714.8,
+        "dqaly": 0.009424
+      },
+      {
+        "dcost": 5970.0,
+        "dqaly": 0.004407
+      },
+      {
+        "dcost": 6232.3,
+        "dqaly": 0.007833
+      },
+      {
+        "dcost": 5788.2,
+        "dqaly": 0.005374
+      },
+      {
+        "dcost": 5500.6,
+        "dqaly": 0.006505
+      },
+      {
+        "dcost": 6317.5,
+        "dqaly": 0.003555
+      },
+      {
+        "dcost": 5573.7,
+        "dqaly": 0.005335
+      },
+      {
+        "dcost": 5091.8,
+        "dqaly": -0.001621
+      },
+      {
+        "dcost": 6194.2,
+        "dqaly": 0.006379
+      },
+      {
+        "dcost": 6364.4,
+        "dqaly": 0.002477
+      },
+      {
+        "dcost": 5758.8,
+        "dqaly": 0.003007
+      },
+      {
+        "dcost": 6130.7,
+        "dqaly": 0.005101
+      },
+      {
+        "dcost": 5865.7,
+        "dqaly": 0.006911
+      },
+      {
+        "dcost": 5641.4,
+        "dqaly": 0.007668
+      },
+      {
+        "dcost": 6087.6,
+        "dqaly": 0.006168
+      },
+      {
+        "dcost": 6760.2,
+        "dqaly": 0.005533
+      },
+      {
+        "dcost": 6463.5,
+        "dqaly": 0.002945
+      },
+      {
+        "dcost": 5715.0,
+        "dqaly": 0.003748
+      },
+      {
+        "dcost": 6143.7,
+        "dqaly": -0.000262
+      },
+      {
+        "dcost": 5749.0,
+        "dqaly": 0.010642
+      },
+      {
+        "dcost": 5658.2,
+        "dqaly": 0.013703
+      },
+      {
+        "dcost": 6155.5,
+        "dqaly": 0.00396
+      },
+      {
+        "dcost": 5947.4,
+        "dqaly": 0.005799
+      },
+      {
+        "dcost": 5946.2,
+        "dqaly": 0.007559
+      },
+      {
+        "dcost": 6362.3,
+        "dqaly": 0.00779
+      },
+      {
+        "dcost": 5434.1,
+        "dqaly": 0.012136
+      },
+      {
+        "dcost": 5984.6,
+        "dqaly": 0.0029
+      },
+      {
+        "dcost": 6425.6,
+        "dqaly": 0.011997
+      },
+      {
+        "dcost": 5936.2,
+        "dqaly": 0.004869
+      },
+      {
+        "dcost": 5679.7,
+        "dqaly": 0.004174
+      },
+      {
+        "dcost": 6485.0,
+        "dqaly": 0.008183
+      },
+      {
+        "dcost": 6126.5,
+        "dqaly": 0.006061
+      },
+      {
+        "dcost": 6665.4,
+        "dqaly": 0.006162
+      },
+      {
+        "dcost": 5944.8,
+        "dqaly": 0.005379
+      },
+      {
+        "dcost": 6301.2,
+        "dqaly": 0.00297
+      },
+      {
+        "dcost": 6273.2,
+        "dqaly": 0.006703
+      },
+      {
+        "dcost": 6646.6,
+        "dqaly": 0.009887
+      },
+      {
+        "dcost": 6813.2,
+        "dqaly": 0.00245
+      },
+      {
+        "dcost": 5274.9,
+        "dqaly": 0.002664
+      },
+      {
+        "dcost": 6370.1,
+        "dqaly": -0.002247
+      },
+      {
+        "dcost": 5974.7,
+        "dqaly": 0.008005
+      },
+      {
+        "dcost": 6348.3,
+        "dqaly": 0.006025
+      },
+      {
+        "dcost": 6158.9,
+        "dqaly": 0.002637
+      },
+      {
+        "dcost": 6179.9,
+        "dqaly": 0.00435
+      },
+      {
+        "dcost": 7159.0,
+        "dqaly": 0.008112
+      },
+      {
+        "dcost": 5736.4,
+        "dqaly": 0.002364
+      },
+      {
+        "dcost": 6504.9,
+        "dqaly": 0.005646
+      },
+      {
+        "dcost": 6237.2,
+        "dqaly": 0.001219
+      },
+      {
+        "dcost": 6302.7,
+        "dqaly": 0.003477
+      },
+      {
+        "dcost": 5432.1,
+        "dqaly": 0.008827
+      },
+      {
+        "dcost": 6118.7,
+        "dqaly": 0.003747
+      },
+      {
+        "dcost": 5408.8,
+        "dqaly": 0.002665
+      },
+      {
+        "dcost": 5346.2,
+        "dqaly": 0.002272
+      },
+      {
+        "dcost": 6268.3,
+        "dqaly": 0.016069
+      },
+      {
+        "dcost": 6268.1,
+        "dqaly": 0.011009
+      },
+      {
+        "dcost": 6962.8,
+        "dqaly": 0.003419
+      },
+      {
+        "dcost": 6724.8,
+        "dqaly": -0.000884
+      },
+      {
+        "dcost": 6265.0,
+        "dqaly": 0.010402
+      },
+      {
+        "dcost": 6457.3,
+        "dqaly": 0.003924
+      },
+      {
+        "dcost": 5767.6,
+        "dqaly": 0.009333
+      },
+      {
+        "dcost": 6634.0,
+        "dqaly": 0.00368
+      },
+      {
+        "dcost": 5719.6,
+        "dqaly": 0.010108
+      },
+      {
+        "dcost": 6418.2,
+        "dqaly": 0.007041
+      },
+      {
+        "dcost": 5823.5,
+        "dqaly": 0.00238
+      },
+      {
+        "dcost": 5874.5,
+        "dqaly": 0.007181
+      },
+      {
+        "dcost": 5943.7,
+        "dqaly": 0.003603
+      },
+      {
+        "dcost": 6227.6,
+        "dqaly": 0.005187
+      },
+      {
+        "dcost": 6456.1,
+        "dqaly": 0.004504
+      },
+      {
+        "dcost": 5986.7,
+        "dqaly": 0.00289
+      },
+      {
+        "dcost": 6288.4,
+        "dqaly": 0.002993
+      },
+      {
+        "dcost": 6019.5,
+        "dqaly": 0.010698
+      },
+      {
+        "dcost": 5966.3,
+        "dqaly": 0.004554
+      },
+      {
+        "dcost": 6630.5,
+        "dqaly": 0.001744
+      },
+      {
+        "dcost": 5474.7,
+        "dqaly": -0.000242
+      },
+      {
+        "dcost": 7084.2,
+        "dqaly": 0.002269
+      },
+      {
+        "dcost": 6724.2,
+        "dqaly": 0.004608
+      },
+      {
+        "dcost": 6767.4,
+        "dqaly": 0.005544
+      },
+      {
+        "dcost": 5966.0,
+        "dqaly": 0.006686
+      },
+      {
+        "dcost": 5455.4,
+        "dqaly": 0.004371
+      },
+      {
+        "dcost": 5722.4,
+        "dqaly": 0.005469
+      },
+      {
+        "dcost": 6149.1,
+        "dqaly": 0.001526
+      },
+      {
+        "dcost": 5272.3,
+        "dqaly": 0.009156
+      },
+      {
+        "dcost": 6599.7,
+        "dqaly": 0.010417
+      },
+      {
+        "dcost": 6351.1,
+        "dqaly": 0.007404
+      },
+      {
+        "dcost": 5868.4,
+        "dqaly": 0.003671
+      },
+      {
+        "dcost": 6916.6,
+        "dqaly": 0.00555
+      },
+      {
+        "dcost": 6386.3,
+        "dqaly": 0.005039
+      },
+      {
+        "dcost": 6357.3,
+        "dqaly": 0.01076
+      },
+      {
+        "dcost": 6194.2,
+        "dqaly": 0.005132
+      },
+      {
+        "dcost": 6664.9,
+        "dqaly": 0.004981
+      },
+      {
+        "dcost": 5521.2,
+        "dqaly": 0.007617
+      },
+      {
+        "dcost": 6406.9,
+        "dqaly": 0.0058
+      },
+      {
+        "dcost": 5623.1,
+        "dqaly": 0.005053
+      },
+      {
+        "dcost": 6614.3,
+        "dqaly": 0.005954
+      },
+      {
+        "dcost": 5910.5,
+        "dqaly": 0.008368
+      },
+      {
+        "dcost": 6471.8,
+        "dqaly": 0.008857
+      },
+      {
+        "dcost": 6632.6,
+        "dqaly": 0.009672
+      },
+      {
+        "dcost": 6128.9,
+        "dqaly": 0.01218
+      },
+      {
+        "dcost": 6267.0,
+        "dqaly": 0.009708
+      },
+      {
+        "dcost": 6189.2,
+        "dqaly": 0.010968
+      },
+      {
+        "dcost": 6460.7,
+        "dqaly": 0.007373
+      },
+      {
+        "dcost": 6227.2,
+        "dqaly": 0.003029
+      },
+      {
+        "dcost": 6787.5,
+        "dqaly": 0.003695
+      },
+      {
+        "dcost": 5747.1,
+        "dqaly": 0.002119
+      },
+      {
+        "dcost": 6695.9,
+        "dqaly": 0.005702
+      },
+      {
+        "dcost": 6344.0,
+        "dqaly": 0.005569
+      },
+      {
+        "dcost": 6365.1,
+        "dqaly": 0.009589
+      },
+      {
+        "dcost": 5794.5,
+        "dqaly": 0.006716
+      },
+      {
+        "dcost": 5373.2,
+        "dqaly": 0.008856
+      },
+      {
+        "dcost": 5994.4,
+        "dqaly": 0.004338
+      },
+      {
+        "dcost": 6433.3,
+        "dqaly": 0.01008
+      },
+      {
+        "dcost": 5869.2,
+        "dqaly": 0.007039
+      },
+      {
+        "dcost": 6413.7,
+        "dqaly": 0.003179
+      },
+      {
+        "dcost": 6229.0,
+        "dqaly": 0.005827
+      },
+      {
+        "dcost": 6280.7,
+        "dqaly": 0.006371
+      },
+      {
+        "dcost": 6401.9,
+        "dqaly": 0.000324
+      },
+      {
+        "dcost": 6652.8,
+        "dqaly": 0.003544
+      },
+      {
+        "dcost": 5395.0,
+        "dqaly": 0.007139
+      },
+      {
+        "dcost": 6712.9,
+        "dqaly": 0.007354
+      },
+      {
+        "dcost": 5624.4,
+        "dqaly": 0.006448
+      },
+      {
+        "dcost": 6133.5,
+        "dqaly": 0.009004
+      },
+      {
+        "dcost": 7064.1,
+        "dqaly": 0.003908
+      },
+      {
+        "dcost": 6144.9,
+        "dqaly": 0.004204
+      },
+      {
+        "dcost": 6076.9,
+        "dqaly": 0.007515
+      },
+      {
+        "dcost": 5499.1,
+        "dqaly": 0.002931
+      },
+      {
+        "dcost": 6127.6,
+        "dqaly": 0.008954
+      },
+      {
+        "dcost": 6221.8,
+        "dqaly": 0.003266
+      },
+      {
+        "dcost": 6093.5,
+        "dqaly": 0.008384
+      },
+      {
+        "dcost": 5874.8,
+        "dqaly": 0.003637
+      },
+      {
+        "dcost": 6660.4,
+        "dqaly": 0.005352
+      },
+      {
+        "dcost": 6815.2,
+        "dqaly": 0.006404
+      },
+      {
+        "dcost": 6323.1,
+        "dqaly": 0.00689
+      },
+      {
+        "dcost": 6244.3,
+        "dqaly": 0.008455
+      },
+      {
+        "dcost": 6163.9,
+        "dqaly": 0.007636
+      },
+      {
+        "dcost": 5350.5,
+        "dqaly": 0.001268
+      },
+      {
+        "dcost": 6457.9,
+        "dqaly": 0.008193
+      },
+      {
+        "dcost": 6303.7,
+        "dqaly": 0.000863
+      },
+      {
+        "dcost": 7020.9,
+        "dqaly": 0.004824
+      }
+    ],
+    "ceac": [
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 0
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 10000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 20000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 30000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 40000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 50000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 60000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 70000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 80000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 90000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 100000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 110000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 120000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 130000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 140000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 150000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 160000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 170000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 180000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 190000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 200000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 210000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 220000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 230000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 240000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 250000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 260000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 270000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 280000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 290000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 300000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 310000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 320000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 330000
+      },
+      {
+        "prob_cost_effective": 0.0,
+        "wtp": 340000
+      },
+      {
+        "prob_cost_effective": 0.0002,
+        "wtp": 350000
+      },
+      {
+        "prob_cost_effective": 0.0004,
+        "wtp": 360000
+      },
+      {
+        "prob_cost_effective": 0.001,
+        "wtp": 370000
+      },
+      {
+        "prob_cost_effective": 0.0012,
+        "wtp": 380000
+      },
+      {
+        "prob_cost_effective": 0.0016,
+        "wtp": 390000
+      },
+      {
+        "prob_cost_effective": 0.0022,
+        "wtp": 400000
+      },
+      {
+        "prob_cost_effective": 0.0032,
+        "wtp": 410000
+      },
+      {
+        "prob_cost_effective": 0.004,
+        "wtp": 420000
+      },
+      {
+        "prob_cost_effective": 0.0048,
+        "wtp": 430000
+      },
+      {
+        "prob_cost_effective": 0.0056,
+        "wtp": 440000
+      },
+      {
+        "prob_cost_effective": 0.007,
+        "wtp": 450000
+      },
+      {
+        "prob_cost_effective": 0.0078,
+        "wtp": 460000
+      },
+      {
+        "prob_cost_effective": 0.0098,
+        "wtp": 470000
+      },
+      {
+        "prob_cost_effective": 0.0122,
+        "wtp": 480000
+      },
+      {
+        "prob_cost_effective": 0.0144,
+        "wtp": 490000
+      },
+      {
+        "prob_cost_effective": 0.018,
+        "wtp": 500000
+      },
+      {
+        "prob_cost_effective": 0.0214,
+        "wtp": 510000
+      },
+      {
+        "prob_cost_effective": 0.0254,
+        "wtp": 520000
+      },
+      {
+        "prob_cost_effective": 0.0302,
+        "wtp": 530000
+      },
+      {
+        "prob_cost_effective": 0.034,
+        "wtp": 540000
+      },
+      {
+        "prob_cost_effective": 0.0388,
+        "wtp": 550000
+      },
+      {
+        "prob_cost_effective": 0.0418,
+        "wtp": 560000
+      },
+      {
+        "prob_cost_effective": 0.0476,
+        "wtp": 570000
+      },
+      {
+        "prob_cost_effective": 0.0532,
+        "wtp": 580000
+      },
+      {
+        "prob_cost_effective": 0.0582,
+        "wtp": 590000
+      },
+      {
+        "prob_cost_effective": 0.0632,
+        "wtp": 600000
+      },
+      {
+        "prob_cost_effective": 0.0692,
+        "wtp": 610000
+      },
+      {
+        "prob_cost_effective": 0.0776,
+        "wtp": 620000
+      },
+      {
+        "prob_cost_effective": 0.0846,
+        "wtp": 630000
+      },
+      {
+        "prob_cost_effective": 0.0924,
+        "wtp": 640000
+      },
+      {
+        "prob_cost_effective": 0.1004,
+        "wtp": 650000
+      },
+      {
+        "prob_cost_effective": 0.1072,
+        "wtp": 660000
+      },
+      {
+        "prob_cost_effective": 0.1162,
+        "wtp": 670000
+      },
+      {
+        "prob_cost_effective": 0.1234,
+        "wtp": 680000
+      },
+      {
+        "prob_cost_effective": 0.131,
+        "wtp": 690000
+      },
+      {
+        "prob_cost_effective": 0.1376,
+        "wtp": 700000
+      },
+      {
+        "prob_cost_effective": 0.1478,
+        "wtp": 710000
+      },
+      {
+        "prob_cost_effective": 0.1554,
+        "wtp": 720000
+      },
+      {
+        "prob_cost_effective": 0.1642,
+        "wtp": 730000
+      },
+      {
+        "prob_cost_effective": 0.1752,
+        "wtp": 740000
+      },
+      {
+        "prob_cost_effective": 0.1848,
+        "wtp": 750000
+      },
+      {
+        "prob_cost_effective": 0.197,
+        "wtp": 760000
+      },
+      {
+        "prob_cost_effective": 0.2066,
+        "wtp": 770000
+      },
+      {
+        "prob_cost_effective": 0.2138,
+        "wtp": 780000
+      },
+      {
+        "prob_cost_effective": 0.223,
+        "wtp": 790000
+      },
+      {
+        "prob_cost_effective": 0.2328,
+        "wtp": 800000
+      },
+      {
+        "prob_cost_effective": 0.2454,
+        "wtp": 810000
+      },
+      {
+        "prob_cost_effective": 0.2544,
+        "wtp": 820000
+      },
+      {
+        "prob_cost_effective": 0.2632,
+        "wtp": 830000
+      },
+      {
+        "prob_cost_effective": 0.2716,
+        "wtp": 840000
+      },
+      {
+        "prob_cost_effective": 0.2814,
+        "wtp": 850000
+      },
+      {
+        "prob_cost_effective": 0.2904,
+        "wtp": 860000
+      },
+      {
+        "prob_cost_effective": 0.2998,
+        "wtp": 870000
+      },
+      {
+        "prob_cost_effective": 0.312,
+        "wtp": 880000
+      },
+      {
+        "prob_cost_effective": 0.3196,
+        "wtp": 890000
+      },
+      {
+        "prob_cost_effective": 0.3284,
+        "wtp": 900000
+      },
+      {
+        "prob_cost_effective": 0.3356,
+        "wtp": 910000
+      },
+      {
+        "prob_cost_effective": 0.3442,
+        "wtp": 920000
+      },
+      {
+        "prob_cost_effective": 0.3526,
+        "wtp": 930000
+      },
+      {
+        "prob_cost_effective": 0.3624,
+        "wtp": 940000
+      },
+      {
+        "prob_cost_effective": 0.372,
+        "wtp": 950000
+      },
+      {
+        "prob_cost_effective": 0.3798,
+        "wtp": 960000
+      },
+      {
+        "prob_cost_effective": 0.3864,
+        "wtp": 970000
+      },
+      {
+        "prob_cost_effective": 0.3928,
+        "wtp": 980000
+      },
+      {
+        "prob_cost_effective": 0.3996,
+        "wtp": 990000
+      },
+      {
+        "prob_cost_effective": 0.4078,
+        "wtp": 1000000
+      }
+    ],
+    "data_mode": "real",
+    "draws": 5000,
+    "icer_summary": {
+      "icer_p025": 518788.0,
+      "icer_p975": 6410026.0,
+      "median_icer": 1106960.0,
+      "n_draws": 5000,
+      "prob_qaly_positive": 0.9822
+    },
+    "note": "CEAC reflects that the self-rated-health effect is only suggestive: probability cost-effective rises with WTP but stays modest, honestly reflecting an effect not distinguishable from zero.",
+    "seed": 20260615,
+    "wtp_thresholds": [
+      50000,
+      100000,
+      150000
+    ]
+  },
+  "robustness": {
+    "checks": {
+      "alt_control_group": {
+        "description": "control_group flipped to nevertreated (expect stable ATT)",
+        "uninsured": {
+          "ci_high": -0.06687,
+          "ci_low": -0.12124,
+          "estimate": -0.09374,
+          "p_value": 0.0,
+          "se": 0.0146
+        }
+      },
+      "dilution_all_adults": {
+        "all_adults": {
+          "cost_barrier": {
+            "ci_high": -0.00052,
+            "ci_low": -0.02451,
+            "estimate": -0.01278,
+            "p_value": 0.032,
+            "se": 0.00612
+          },
+          "fair_poor_health": {
+            "ci_high": 0.00821,
+            "ci_low": -0.00207,
+            "estimate": 0.00305,
+            "p_value": 0.2482,
+            "se": 0.00258
+          },
+          "uninsured": {
+            "ci_high": -0.00958,
+            "ci_low": -0.02908,
+            "estimate": -0.01936,
+            "p_value": 0.0,
+            "se": 0.00502
+          }
+        },
+        "description": "ATT on ALL adults (expect attenuation vs eligible-only headline)",
+        "headline_eligible": {
+          "cost_barrier": {
+            "ci_high": -0.01622,
+            "ci_low": -0.0531,
+            "estimate": -0.03553,
+            "p_value": 0.0,
+            "se": 0.0097
+          },
+          "fair_poor_health": {
+            "ci_high": -0.00098,
+            "ci_low": -0.03535,
+            "estimate": -0.01841,
+            "p_value": 0.041,
+            "se": 0.0087
+          },
+          "uninsured": {
+            "ci_high": -0.0678,
+            "ci_low": -0.12125,
+            "estimate": -0.09412,
+            "p_value": 0.0,
+            "se": 0.01444
+          }
+        }
+      },
+      "drop_2014_cohort": {
+        "description": "drop the 2014 cohort (expect headline robust)",
+        "uninsured": {
+          "ci_high": -0.08216,
+          "ci_low": -0.15403,
+          "estimate": -0.1197,
+          "p_value": 0.0,
+          "se": 0.01901
+        }
+      },
+      "exclude_covid": {
+        "description": "core window ends 2019 by construction; 2020-21 never enters headline",
+        "window": [
+          2011,
+          2019
+        ]
+      },
+      "placebo_timing": {
+        "description": "fake adoption 3 years early, pre-adoption data only (expect NULL)",
+        "is_null_as_expected": false,
+        "uninsured": {
+          "ci_high": 0.05065,
+          "ci_low": 0.02245,
+          "estimate": 0.03687,
+          "p_value": 0.0,
+          "se": 0.00747
+        }
+      }
+    },
+    "data_mode": "real",
+    "seed": 20260615
+  },
+  "trends": {
+    "data_mode": "real",
+    "series": [
+      {
+        "cost_barrier": 0.33383,
+        "fair_poor_health": 0.31028,
+        "group": "expansion",
+        "uninsured": 0.37419,
+        "year": 2013
+      },
+      {
+        "cost_barrier": 0.29085,
+        "fair_poor_health": 0.3106,
+        "group": "expansion",
+        "uninsured": 0.28003,
+        "year": 2014
+      },
+      {
+        "cost_barrier": 0.25434,
+        "fair_poor_health": 0.30708,
+        "group": "expansion",
+        "uninsured": 0.23028,
+        "year": 2015
+      },
+      {
+        "cost_barrier": 0.23434,
+        "fair_poor_health": 0.30921,
+        "group": "expansion",
+        "uninsured": 0.21176,
+        "year": 2016
+      },
+      {
+        "cost_barrier": 0.23357,
+        "fair_poor_health": 0.32416,
+        "group": "expansion",
+        "uninsured": 0.22028,
+        "year": 2017
+      },
+      {
+        "cost_barrier": 0.22801,
+        "fair_poor_health": 0.33335,
+        "group": "expansion",
+        "uninsured": 0.21597,
+        "year": 2018
+      },
+      {
+        "cost_barrier": 0.23304,
+        "fair_poor_health": 0.33123,
+        "group": "expansion",
+        "uninsured": 0.23068,
+        "year": 2019
+      },
+      {
+        "cost_barrier": 0.21633,
+        "fair_poor_health": 0.31978,
+        "group": "expansion",
+        "uninsured": 0.20092,
+        "year": 2020
+      },
+      {
+        "cost_barrier": 0.38793,
+        "fair_poor_health": 0.31948,
+        "group": "non_expansion",
+        "uninsured": 0.45537,
+        "year": 2013
+      },
+      {
+        "cost_barrier": 0.35655,
+        "fair_poor_health": 0.32491,
+        "group": "non_expansion",
+        "uninsured": 0.39972,
+        "year": 2014
+      },
+      {
+        "cost_barrier": 0.33169,
+        "fair_poor_health": 0.32698,
+        "group": "non_expansion",
+        "uninsured": 0.35822,
+        "year": 2015
+      },
+      {
+        "cost_barrier": 0.32975,
+        "fair_poor_health": 0.31991,
+        "group": "non_expansion",
+        "uninsured": 0.34741,
+        "year": 2016
+      },
+      {
+        "cost_barrier": 0.32694,
+        "fair_poor_health": 0.33975,
+        "group": "non_expansion",
+        "uninsured": 0.35721,
+        "year": 2017
+      },
+      {
+        "cost_barrier": 0.31956,
+        "fair_poor_health": 0.34462,
+        "group": "non_expansion",
+        "uninsured": 0.35604,
+        "year": 2018
+      },
+      {
+        "cost_barrier": 0.33141,
+        "fair_poor_health": 0.36336,
+        "group": "non_expansion",
+        "uninsured": 0.36178,
+        "year": 2019
+      },
+      {
+        "cost_barrier": 0.25686,
+        "fair_poor_health": 0.34044,
+        "group": "non_expansion",
+        "uninsured": 0.28334,
+        "year": 2020
+      }
+    ]
+  }
+};

@@ -1,0 +1,11 @@
+{
+  "cost_data_mode": "real",
+  "incremental_cost_se": 417.5,
+  "incremental_total_cost_per_adult": 6174.45,
+  "mean_total_exp_covered": 7357.96,
+  "mean_total_exp_uninsured": 1183.51,
+  "n_covered": 4130,
+  "n_uninsured": 1009,
+  "note": "Incremental TOTAL medical expenditure of a covered vs uninsured low-income adult; national MEPS magnitudes, stylised budget-impact input.",
+  "oop_share_reduction": 0.4002
+}

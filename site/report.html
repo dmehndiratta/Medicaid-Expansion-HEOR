@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Medicaid Expansion: Causal Effects & HEOR Translation (Report)</title>
+<style>
+  :root{--ink:#16242c;--mut:#5b6b75;--line:#e3e8ec;--brand:#0b6e7a;--bad:#b4413c;--bg:#fbfcfc}
+  body{margin:0 auto;max-width:820px;padding:40px 22px 80px;color:var(--ink);background:var(--bg);
+       font:16px/1.65 Georgia,"Times New Roman",serif}
+  h1{font-size:30px;line-height:1.2;margin:0 0 6px}
+  h2{font-size:22px;margin:36px 0 10px;border-bottom:2px solid var(--line);padding-bottom:6px}
+  h3{font-size:17px;margin:22px 0 6px}
+  .meta{color:var(--mut);font-size:14px;font-family:-apple-system,Segoe UI,sans-serif}
+  .lede{font-size:18px;color:#33454f}
+  .banner{padding:12px 16px;border-radius:8px;font-size:14px;font-family:-apple-system,Segoe UI,sans-serif;margin:16px 0}
+  .banner.syn{background:#fff4e5;border:1px solid #f0c27a;color:#8a5a00}
+  table{border-collapse:collapse;font-size:14px;font-family:-apple-system,Segoe UI,sans-serif;margin:14px 0;width:100%}
+  th,td{border:1px solid var(--line);padding:7px 11px;text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  th{background:#eef2f4}
+  .ok{color:var(--brand);font-weight:700}.bad{color:var(--bad);font-weight:700}
+  code{background:#eef2f4;padding:1px 5px;border-radius:4px;font-size:13px}
+  .callout{background:#fff;border-left:4px solid var(--brand);padding:10px 16px;margin:16px 0;
+           font-family:-apple-system,Segoe UI,sans-serif;font-size:14.5px}
+  a{color:var(--brand)}
+  .foot{color:var(--mut);font-size:13px;font-family:-apple-system,Segoe UI,sans-serif;margin-top:40px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<h1>ACA Medicaid Expansion: Causal Effects and an HEOR Translation</h1>
+<div class="meta" id="meta-line"></div>
+<div id="banner"></div>
+
+<p class="lede">Did the staggered ACA Medicaid expansions causally reduce cost-related
+barriers to care and improve self-reported health among low-income adults? And in the
+language a health-economics consultancy speaks, what does that imply for cost per QALY
+and budget impact?</p>
+
+<div class="callout"><b>How to read this.</b> The causal estimate comes first and stands
+on its own. The HEOR overlay (QALYs, ICER, budget impact) is a transparent, sensitivity-
+tested <i>model</i> built on top of it. Where the causal evidence is weak, as it is for
+self-rated health here, the cost-effectiveness conclusion says so rather than manufacturing
+a favourable number.</div>
+
+<h2>1. Identification</h2>
+<p>Treatment is a state adopting Medicaid expansion; timing is staggered from 2014
+(<a href="https://www.kff.org/medicaid/issue-brief/status-of-state-medicaid-expansion-decisions/">KFF tracker</a>).
+The estimand is the average treatment effect on the treated (ATT) among
+<b>policy-eligible</b> adults (19–64, ≤138% FPL). Estimating on all adults dilutes the
+effect, which we show in the robustness suite. Because classic two-way fixed-effects DiD
+is biased under staggered timing with heterogeneous effects, the headline estimator is
+<b>Callaway–Sant'Anna</b> group-time ATT with not-yet-treated controls; TWFE and a
+Goodman-Bacon decomposition are shown only to demonstrate that bias. Inference uses a
+state-clustered <b>wild-cluster bootstrap</b> (the correct fix for ~50 clusters).</p>
+
+<div class="callout"><b>Falsification.</b> Non-flat event-study pre-trends would sink the
+identification; we test them formally. If the coverage/cost effects vanished under CS,
+the hypothesis would be falsified. A self-rated-health effect that is null, or that fails
+the pre-trend test, yields no credible QALY gain, and is reported as such.</div>
+
+<h2>2. Headline causal results</h2>
+<p id="results-intro"></p>
+<table id="att-table"></table>
+<p class="meta">Pre-trend test is a joint Wald test on the event-study leads (event time
+&lt; −1). "Flat" (p &gt; 0.05) means the parallel-trends assumption is not rejected.</p>
+
+<h2>3. Why not naive TWFE</h2>
+<p id="twfe-para"></p>
+<table id="bacon-table"></table>
+
+<h2>4. HEOR overlay: QALYs, ICER, budget impact</h2>
+<p>The QALY gain is derived from the <i>causal</i> change in self-rated health, mapped to
+utilities via a sourced crosswalk (base case <code id="uset"></code>; all three crosswalks
+and their uncertainty enter the PSA). The cost side is the incremental annual medical
+expenditure of a covered vs uninsured low-income adult (MEPS).</p>
+<table id="heor-table"></table>
+<div class="callout" id="icer-callout"></div>
+
+<h3>4.1 Probabilistic sensitivity analysis</h3>
+<p id="psa-para"></p>
+
+<h2>5. Robustness &amp; refutation</h2>
+<ul id="robust-list"></ul>
+
+<h2>6. Limitations</h2>
+<ul>
+<li><b>Self-reported outcomes.</b> BRFSS measures perceived access and health, not
+clinical outcomes or mortality.</li>
+<li><b>QALYs are modelled, not measured.</b> The utility mapping is an assumption layer;
+the ICER is an illustrative translation, sensitivity-tested, not a primary cost-utility
+measurement. A null health effect yields no QALY gain.</li>
+<li><b>MEPS is national.</b> The cost side is parameterised from national data, so the
+budget impact is a stylised model.</li>
+<li><b>Few clusters &amp; co-treatments.</b> ~50 states limit precision; concurrent ACA
+marketplace changes co-occur, so the ATT is identified off adoption-<i>timing</i>
+differences, not a universal expansion effect.</li>
+<li><b>Not advocacy.</b> The analysis estimates effects and cost-effectiveness under
+stated assumptions; it argues neither for nor against expansion.</li>
+</ul>
+
+<div class="foot" id="foot"></div>
+<p class="foot">Interactive version: <a href="dashboard.html">dashboard.html</a>. Sources and
+methods references in <code>SOURCES.md</code>.</p>
+
+<script src="data/bundle.js"></script>
+<script>
+const D = window.MEHEOR_DATA, L = D.meta.outcomes;
+const fmt=(x,d=4)=>(x>=0?"+":"")+Number(x).toFixed(d), pct=x=>(100*x).toFixed(1)+"%",
+      usd=x=>"$"+Math.round(x).toLocaleString();
+document.getElementById("meta-line").textContent =
+  `Generated ${D.meta.generated_at} · causal engine: ${D.meta.engine_causal} · window ${D.meta.window[0]}–${D.meta.window[1]} · seed ${D.meta.seed}`;
+if(D.meta.data_mode==="synthetic")
+  document.getElementById("banner").innerHTML='<div class="banner syn"><b>Synthetic demonstration data.</b> '
+   +'Run on a calibrated synthetic panel (no real BRFSS/MEPS present): the numbers demonstrate the method '
+   +'and recover a known planted effect; they are not a substantive finding.</div>';
+
+const cs=D.did.csdid.results, ct=D.did.contrast.results, outs=Object.keys(L);
+// ATT table
+let t="<tr><th>Outcome</th><th>ATT (pp)</th><th>95% CI</th><th>Pre-trend p</th><th>Pre-trends flat?</th></tr>";
+outs.forEach(o=>{const a=cs[o].overall_att,p=cs[o].pre_trend_test;
+  t+=`<tr><td>${L[o]}</td><td>${fmt(a.estimate)}</td><td>[${fmt(a.ci_low)}, ${fmt(a.ci_high)}]</td>`
+   +`<td>${p.p_value}</td><td class="${p.flat?'ok':'bad'}">${p.flat?'yes':'NO'}</td></tr>`;});
+document.getElementById("att-table").innerHTML=t;
+const flatTxt=o=>cs[o].pre_trend_test.flat
+  ?'pre-trends not rejected'
+  :'<span class="bad">pre-trends rejected, interpret causally with caution</span>';
+const sig=a=>!(a.ci_low<=0&&0<=a.ci_high);
+const hA=cs.fair_poor_health.overall_att, hFlat=cs.fair_poor_health.pre_trend_test.flat;
+document.getElementById("results-intro").innerHTML =
+  `Among eligible low-income adults, expansion reduced uninsurance by `
+  +`<b>${pct(-cs.uninsured.overall_att.estimate)}</b> (${flatTxt('uninsured')}) and the `
+  +`"could not see a doctor because of cost" barrier by <b>${pct(-cs.cost_barrier.overall_att.estimate)}</b> `
+  +`(${flatTxt('cost_barrier')}). The self-rated-health effect is `
+  +`${sig(hA)?'statistically significant':'<b>not statistically distinguishable from zero</b>'}`
+  +`${hFlat?'':' but <b class="bad">fails the pre-trend test</b>, so it is not treated as credibly causal'}.`;
+
+// TWFE / Bacon
+const twU=ct.uninsured.twfe_static, gb=ct.uninsured.goodman_bacon;
+document.getElementById("twfe-para").innerHTML =
+  `For uninsurance, naive TWFE gives ${fmt(twU.estimate)} vs the CS headline `
+  +`${fmt(cs.uninsured.overall_att.estimate)}, attenuated, because TWFE averages in `
+  +`<b>${pct(gb.forbidden_comparison_weight)}</b> weight of forbidden already-treated-as-control comparisons:`;
+let b="<tr><th>Comparison type</th><th>Weight</th><th>Avg 2×2 DiD</th></tr>";
+Object.entries(gb.by_type).forEach(([k,v])=>b+=`<tr><td>${k.replace(/_/g,' ')}</td><td>${pct(v.weight_share)}</td><td>${fmt(v.avg_did)}</td></tr>`);
+document.getElementById("bacon-table").innerHTML=b;
+
+// HEOR
+const bc=D.heor.base_case, bi=D.heor.budget_impact;
+document.getElementById("uset").textContent=bc.utility_set;
+let h="<tr><th>Quantity</th><th>Value</th></tr>"
+ +`<tr><td>Δ utility (fair/poor → better health state)</td><td>${bc.utility_delta_fairpoor_to_better}</td></tr>`
+ +`<tr><td>Causal Δ in P(fair/poor health), ATT</td><td>${fmt(bc.health_att.estimate)} [${fmt(bc.health_att.ci_low)}, ${fmt(bc.health_att.ci_high)}]</td></tr>`
+ +`<tr><td>Δ QALY per adult-year</td><td>${bc.dqaly_per_adult_year}</td></tr>`
+ +`<tr><td>Δ cost per adult (MEPS)</td><td>${usd(bc.dcost_per_adult)}</td></tr>`
+ +`<tr><td>ICER (cost per QALY)</td><td>${bc.icer?usd(bc.icer):'<span class="bad">not demonstrated</span>'}</td></tr>`
+ +`<tr><td>Budget impact: newly covered</td><td>${(bi.newly_covered/1e6).toFixed(1)}M adults</td></tr>`
+ +`<tr><td>Budget impact: total annual cost</td><td>${usd(bi.total_incremental_cost)}</td></tr>`;
+document.getElementById("heor-table").innerHTML=h;
+const costNote = (D.heor.cost_data_mode && D.heor.cost_data_mode!=="real")
+  ? ` <i>(Cost side uses synthetic MEPS magnitudes, because the downloaded MEPS file is a `
+    +`CPORT-compressed transport that cannot be read without SAS; see methods.)</i>` : "";
+document.getElementById("icer-callout").innerHTML =
+  `<b>Honest ICER.</b> ${bc.health_effect_credible
+    ? 'The health effect is significant and survives the pre-trend diagnostic; the base-case ICER is '+usd(bc.icer)+'/QALY.'
+    : 'The cost-per-QALY <b>on this outcome is not demonstrated</b>: '+bc.icer_status.replace(/^not_demonstrated: /,'')
+      +'. The credible value of expansion here is in coverage and cost-barrier reductions, not a measurable QALY gain.'}`
+  + costNote;
+// icer_status now uses a colon prefix, not an em dash
+
+const s=D.psa.icer_summary, c100=D.psa.ceac.find(d=>d.wtp===100000);
+document.getElementById("psa-para").innerHTML =
+  `Monte-Carlo over the causal effect, the utility weights (all three crosswalks), cost, and uptake `
+  +`(${D.psa.draws.toLocaleString()} draws). ΔQALY is positive in <b>${pct(s.prob_qaly_positive)}</b> of draws, `
+  +`but small: where defined, the median ICER is <b>${s.median_icer?usd(s.median_icer):'n/a'}/QALY</b> `
+  +`(95% ${s.icer_p025?usd(s.icer_p025)+'–'+usd(s.icer_p975):'n/a'}). At a $100k/QALY threshold the probability `
+  +`cost-effective is only <b>${c100?pct(c100.prob_cost_effective):'n/a'}</b>, far above conventional thresholds, `
+  +`a direct consequence of the weak health effect. See the CEAC explorer in the dashboard.`;
+
+// robustness
+const rc=D.robustness.checks;
+const dil=rc.dilution_all_adults, pl=rc.placebo_timing;
+const items=[
+ `<b>Dilution (all adults).</b> Uninsurance ATT falls from ${fmt(dil.headline_eligible.uninsured.estimate)} (eligible) to `
+  +`${fmt(dil.all_adults.uninsured.estimate)} (all adults), confirming the eligibility proxy matters.`,
+ `<b>Alternative control group.</b> Flipping to ${rc.alt_control_group.description.match(/to (\w+)/)[1]} gives `
+  +`${fmt(rc.alt_control_group.uninsured.estimate)}, stable.`,
+ `<b>Drop 2014 cohort.</b> Uninsurance ATT ${fmt(rc.drop_2014_cohort.uninsured.estimate)}: headline not driven by one cohort.`,
+ `<b>Exclude COVID.</b> Core window ends ${rc.exclude_covid.window[1]} by construction.`,
+ `<b>Placebo timing.</b> Fake adoption 3 years early on pre-period data: `
+  +`${pl.uninsured.estimate!==undefined?fmt(pl.uninsured.estimate):'n/a'}, `
+  +`<span class="${pl.is_null_as_expected?'ok':'bad'}">${pl.is_null_as_expected?'null as expected':'NOT null, a concern'}</span>.`
+];
+document.getElementById("robust-list").innerHTML=items.map(i=>`<li>${i}</li>`).join("");
+document.getElementById("foot").textContent =
+  `Causal effects estimated with Callaway–Sant'Anna (${D.meta.engine_causal}); HEOR overlay and PSA in Python. `
+  +`All figures regenerate deterministically from seed ${D.meta.seed}.`;
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+# Raw immutable snapshots and interim parquet are gitignored (SETUP.md §7).
+# Processed analysis panel + results JSON ARE committed for --offline CI export.
+data/raw/
+data/interim/
+*.parquet
+!data/processed/*.parquet
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+.ruff_cache/
+
+# R
+.Rproj.user/
+renv/library/
+renv/staging/
+
+# OS / editor
+.DS_Store
+Thumbs.db

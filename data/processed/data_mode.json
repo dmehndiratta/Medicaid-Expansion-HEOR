@@ -1,0 +1,11 @@
+{
+  "data_mode": "real",
+  "snapshot_dir": "D:\\Python Projects\\Finance Projects\\Medicaid-Expansion-HEOR\\data\\raw\\brfss\\real",
+  "source": "brfss",
+  "url_pattern": "https://www.cdc.gov/brfss/annual_data/{yr}/files/LLCP{yr}XPT.zip",
+  "vintage": "2026-06-22",
+  "years": [
+    2011,
+    2019
+  ]
+}

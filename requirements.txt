@@ -1,0 +1,11 @@
+# Python 3.11. Pinned per plan §5. R deps (did, fixest, fwildclusterboot) are pinned
+# separately in renv.lock; the headline DiD runs in R when Rscript is on PATH, and the
+# tested Python implementation in pipeline/03_analysis/_csa.py is the documented fallback.
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+pyreadstat==1.2.7          # read BRFSS/MEPS SAS XPT/transport files
+pyarrow==16.1.0
+matplotlib==3.9.0
+pyyaml==6.0.1
+requests==2.32.3

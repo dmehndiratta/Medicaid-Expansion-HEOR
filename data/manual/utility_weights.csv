@@ -1,0 +1,26 @@
+# Health-status -> health utility (QALY weight) crosswalk. THESE ARE ASSUMPTIONS,
+# sourced and varied in the PSA — not primary measurement (plan §3, §10).
+# weight_set: which mapping. base_case picks one via config.heor.utility_base_case.
+# utility: mean utility on the 0(dead)-1(full health) QALY scale for that health state.
+# se: standard error used to draw the weight in the PSA (Beta-reparameterised).
+# Sources:
+#   cdc_hrqol  : CDC HRQOL / "Healthy Days" to EQ-5D index mapping
+#                (Jia et al., mapping Healthy Days to EQ-5D; CDC HRQOL program).
+#   eq5d_us    : US EQ-5D-3L value set (Shaw, Johnson & Coons 2005, Medical Care).
+#   sf6d       : SF-6D UK/US tariff (Brazier, Roberts & Deverill 2002, J Health Econ).
+weight_set,health_state,utility,se,source
+cdc_hrqol,excellent,0.95,0.01,"Jia et al. CDC HRQOL->EQ-5D"
+cdc_hrqol,very_good,0.89,0.01,"Jia et al. CDC HRQOL->EQ-5D"
+cdc_hrqol,good,0.80,0.02,"Jia et al. CDC HRQOL->EQ-5D"
+cdc_hrqol,fair,0.66,0.03,"Jia et al. CDC HRQOL->EQ-5D"
+cdc_hrqol,poor,0.45,0.05,"Jia et al. CDC HRQOL->EQ-5D"
+eq5d_us,excellent,0.92,0.02,"Shaw Johnson Coons 2005 US EQ-5D-3L"
+eq5d_us,very_good,0.87,0.02,"Shaw Johnson Coons 2005 US EQ-5D-3L"
+eq5d_us,good,0.78,0.03,"Shaw Johnson Coons 2005 US EQ-5D-3L"
+eq5d_us,fair,0.62,0.04,"Shaw Johnson Coons 2005 US EQ-5D-3L"
+eq5d_us,poor,0.41,0.06,"Shaw Johnson Coons 2005 US EQ-5D-3L"
+sf6d,excellent,0.86,0.02,"Brazier et al. 2002 SF-6D"
+sf6d,very_good,0.82,0.02,"Brazier et al. 2002 SF-6D"
+sf6d,good,0.75,0.03,"Brazier et al. 2002 SF-6D"
+sf6d,fair,0.64,0.04,"Brazier et al. 2002 SF-6D"
+sf6d,poor,0.48,0.05,"Brazier et al. 2002 SF-6D"

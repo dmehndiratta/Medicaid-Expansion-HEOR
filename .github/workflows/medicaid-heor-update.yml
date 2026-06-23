@@ -1,0 +1,96 @@
+# Pattern A cross-repo publish (SETUP.md §3). Two jobs. NO schedule — this is a
+# COMPLETED analysis, so it refreshes only on push / manual dispatch.
+#
+# CI runs the PYTHON-ONLY offline export (plan §11 Q4 recommended fallback): the
+# headline Callaway-Sant'Anna results are produced locally (R `did` when available,
+# else the tested Python implementation) and committed under data/processed/, so CI
+# only needs to rebuild site/data/*.json from them — no R, no network, no survey
+# downloads. To run the full R headline path in CI instead, add the r-lib/actions
+# setup + renv::restore() block (commented below) and call run_pipeline.py without
+# --offline.
+name: medicaid-heor-update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/manual/**"
+      - "data/processed/**"
+      - "pipeline/**"
+      - "run_pipeline.py"
+      - "site/**"
+      - ".github/workflows/medicaid-heor-update.yml"
+  workflow_dispatch:
+    inputs:
+      export_only:
+        description: "Rebuild site/ JSON from committed processed artefacts only"
+        type: boolean
+        default: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      # --- OPTIONAL R headline path (disabled; see header). ---
+      # - uses: r-lib/actions/setup-r@v2
+      #   with: { r-version: "4.4.2" }
+      # - uses: r-lib/actions/setup-renv@v2
+      # - run: Rscript -e 'renv::restore()'
+
+      - name: Rebuild site JSON (offline export from committed processed/)
+        run: python run_pipeline.py --offline
+
+      - name: JSON guard (browser-parseable; no NaN/Infinity)
+        run: python tools/json_guard.py
+
+      - name: Commit regenerated site outputs
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site/data site/dashboard.html site/report.html
+          git diff --staged --quiet || git commit -m "ci: refresh site outputs [skip ci]"
+          git push
+
+  sync-website:
+    needs: update
+    if: always() && needs.update.result != 'failure'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout the private Website repo via PAT
+        uses: actions/checkout@v4
+        with:
+          repository: dmehndiratta/Website
+          token: ${{ secrets.WEBSITE_REPO_TOKEN }}
+          path: website
+
+      - name: Copy the full static payload into public/<slug>/
+        run: |
+          DEST="website/public/medicaid-expansion-heor"
+          mkdir -p "$DEST/data"
+          cp site/data/*.json "$DEST/data/"
+          cp site/data/bundle.js "$DEST/data/"
+          cp site/dashboard.html "$DEST/dashboard.html"
+          cp site/report.html "$DEST/report.html"
+
+      - name: Commit & push to Website (Cloudflare Pages redeploys on push)
+        run: |
+          cd website
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/medicaid-expansion-heor
+          git diff --staged --quiet || git commit -m "data: refresh medicaid-expansion-heor"
+          git push

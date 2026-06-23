@@ -1,0 +1,306 @@
+{
+  "data_mode": "real",
+  "method": "twfe_sunab_bacon",
+  "outcome_labels": {
+    "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+    "fair_poor_health": "Self-rated health fair or poor",
+    "uninsured": "Uninsured (no health coverage)"
+  },
+  "results": {
+    "cost_barrier": {
+      "goodman_bacon": {
+        "by_type": {
+          "earlier_vs_later_clean": {
+            "avg_did": -0.05034,
+            "weight_share": 0.0731
+          },
+          "later_vs_earlier_FORBIDDEN": {
+            "avg_did": -0.03735,
+            "weight_share": 0.1333
+          },
+          "treated_vs_never": {
+            "avg_did": -0.04738,
+            "weight_share": 0.7936
+          }
+        },
+        "forbidden_comparison_weight": 0.1333,
+        "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+        "twfe_implied_weighted_avg": -0.04626
+      },
+      "sunab_event_study": [
+        {
+          "ci_high": 0.01789,
+          "ci_low": -0.03029,
+          "estimate": -0.0062,
+          "event_time": -5,
+          "se": 0.01229
+        },
+        {
+          "ci_high": 0.02019,
+          "ci_low": -0.01126,
+          "estimate": 0.00447,
+          "event_time": -4,
+          "se": 0.00802
+        },
+        {
+          "ci_high": 0.04983,
+          "ci_low": -0.00044,
+          "estimate": 0.0247,
+          "event_time": -3,
+          "se": 0.01282
+        },
+        {
+          "ci_high": 0.01411,
+          "ci_low": -0.02916,
+          "estimate": -0.00752,
+          "event_time": -2,
+          "se": 0.01104
+        },
+        {
+          "ci_high": 0.00131,
+          "ci_low": -0.0257,
+          "estimate": -0.0122,
+          "event_time": 0,
+          "se": 0.00689
+        },
+        {
+          "ci_high": 0.09132,
+          "ci_low": -0.05386,
+          "estimate": 0.01873,
+          "event_time": 1,
+          "se": 0.03704
+        },
+        {
+          "ci_high": -0.04481,
+          "ci_low": -0.07278,
+          "estimate": -0.05879,
+          "event_time": 2,
+          "se": 0.00714
+        },
+        {
+          "ci_high": -0.04514,
+          "ci_low": -0.08662,
+          "estimate": -0.06588,
+          "event_time": 3,
+          "se": 0.01058
+        },
+        {
+          "ci_high": -0.02589,
+          "ci_low": -0.06016,
+          "estimate": -0.04302,
+          "event_time": 4,
+          "se": 0.00874
+        },
+        {
+          "ci_high": -0.0071,
+          "ci_low": -0.06918,
+          "estimate": -0.03814,
+          "event_time": 5,
+          "se": 0.01584
+        }
+      ],
+      "twfe_static": {
+        "estimate": -0.03424,
+        "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+        "se": 0.00716
+      }
+    },
+    "fair_poor_health": {
+      "goodman_bacon": {
+        "by_type": {
+          "earlier_vs_later_clean": {
+            "avg_did": -0.01056,
+            "weight_share": 0.0731
+          },
+          "later_vs_earlier_FORBIDDEN": {
+            "avg_did": -0.02715,
+            "weight_share": 0.1333
+          },
+          "treated_vs_never": {
+            "avg_did": 0.00445,
+            "weight_share": 0.7936
+          }
+        },
+        "forbidden_comparison_weight": 0.1333,
+        "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+        "twfe_implied_weighted_avg": -0.00086
+      },
+      "sunab_event_study": [
+        {
+          "ci_high": 0.0123,
+          "ci_low": -0.02204,
+          "estimate": -0.00487,
+          "event_time": -5,
+          "se": 0.00876
+        },
+        {
+          "ci_high": -0.00824,
+          "ci_low": -0.04728,
+          "estimate": -0.02776,
+          "event_time": -4,
+          "se": 0.00996
+        },
+        {
+          "ci_high": 0.00699,
+          "ci_low": -0.02007,
+          "estimate": -0.00654,
+          "event_time": -3,
+          "se": 0.0069
+        },
+        {
+          "ci_high": -0.00906,
+          "ci_low": -0.03357,
+          "estimate": -0.02131,
+          "event_time": -2,
+          "se": 0.00625
+        },
+        {
+          "ci_high": -0.00466,
+          "ci_low": -0.02596,
+          "estimate": -0.01531,
+          "event_time": 0,
+          "se": 0.00543
+        },
+        {
+          "ci_high": -0.05623,
+          "ci_low": -0.08794,
+          "estimate": -0.07208,
+          "event_time": 1,
+          "se": 0.00809
+        },
+        {
+          "ci_high": 0.01737,
+          "ci_low": -0.01789,
+          "estimate": -0.00026,
+          "event_time": 2,
+          "se": 0.009
+        },
+        {
+          "ci_high": 0.01435,
+          "ci_low": -0.02296,
+          "estimate": -0.0043,
+          "event_time": 3,
+          "se": 0.00952
+        },
+        {
+          "ci_high": 0.01101,
+          "ci_low": -0.02329,
+          "estimate": -0.00614,
+          "event_time": 4,
+          "se": 0.00875
+        },
+        {
+          "ci_high": 0.02193,
+          "ci_low": -0.04895,
+          "estimate": -0.01351,
+          "event_time": 5,
+          "se": 0.01808
+        }
+      ],
+      "twfe_static": {
+        "estimate": -0.00814,
+        "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+        "se": 0.00889
+      }
+    },
+    "uninsured": {
+      "goodman_bacon": {
+        "by_type": {
+          "earlier_vs_later_clean": {
+            "avg_did": -0.08101,
+            "weight_share": 0.0731
+          },
+          "later_vs_earlier_FORBIDDEN": {
+            "avg_did": -0.10498,
+            "weight_share": 0.1333
+          },
+          "treated_vs_never": {
+            "avg_did": -0.09141,
+            "weight_share": 0.7936
+          }
+        },
+        "forbidden_comparison_weight": 0.1333,
+        "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+        "twfe_implied_weighted_avg": -0.09246
+      },
+      "sunab_event_study": [
+        {
+          "ci_high": 0.031,
+          "ci_low": -0.0081,
+          "estimate": 0.01145,
+          "event_time": -5,
+          "se": 0.00997
+        },
+        {
+          "ci_high": 0.00294,
+          "ci_low": -0.05196,
+          "estimate": -0.02451,
+          "event_time": -4,
+          "se": 0.014
+        },
+        {
+          "ci_high": 0.02913,
+          "ci_low": -0.00248,
+          "estimate": 0.01332,
+          "event_time": -3,
+          "se": 0.00806
+        },
+        {
+          "ci_high": 0.01402,
+          "ci_low": -0.01821,
+          "estimate": -0.00209,
+          "event_time": -2,
+          "se": 0.00822
+        },
+        {
+          "ci_high": -0.01767,
+          "ci_low": -0.05821,
+          "estimate": -0.03794,
+          "event_time": 0,
+          "se": 0.01034
+        },
+        {
+          "ci_high": -0.0871,
+          "ci_low": -0.12723,
+          "estimate": -0.10716,
+          "event_time": 1,
+          "se": 0.01024
+        },
+        {
+          "ci_high": -0.06543,
+          "ci_low": -0.11586,
+          "estimate": -0.09064,
+          "event_time": 2,
+          "se": 0.01286
+        },
+        {
+          "ci_high": -0.05994,
+          "ci_low": -0.10836,
+          "estimate": -0.08415,
+          "event_time": 3,
+          "se": 0.01235
+        },
+        {
+          "ci_high": -0.06435,
+          "ci_low": -0.11358,
+          "estimate": -0.08896,
+          "event_time": 4,
+          "se": 0.01256
+        },
+        {
+          "ci_high": -0.05167,
+          "ci_low": -0.13891,
+          "estimate": -0.09529,
+          "event_time": 5,
+          "se": 0.02225
+        }
+      ],
+      "twfe_static": {
+        "estimate": -0.05938,
+        "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+        "se": 0.01707
+      }
+    }
+  },
+  "seed": 20260615
+}

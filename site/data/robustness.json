@@ -1,0 +1,93 @@
+{
+  "checks": {
+    "alt_control_group": {
+      "description": "control_group flipped to nevertreated (expect stable ATT)",
+      "uninsured": {
+        "ci_high": -0.06687,
+        "ci_low": -0.12124,
+        "estimate": -0.09374,
+        "p_value": 0.0,
+        "se": 0.0146
+      }
+    },
+    "dilution_all_adults": {
+      "all_adults": {
+        "cost_barrier": {
+          "ci_high": -0.00052,
+          "ci_low": -0.02451,
+          "estimate": -0.01278,
+          "p_value": 0.032,
+          "se": 0.00612
+        },
+        "fair_poor_health": {
+          "ci_high": 0.00821,
+          "ci_low": -0.00207,
+          "estimate": 0.00305,
+          "p_value": 0.2482,
+          "se": 0.00258
+        },
+        "uninsured": {
+          "ci_high": -0.00958,
+          "ci_low": -0.02908,
+          "estimate": -0.01936,
+          "p_value": 0.0,
+          "se": 0.00502
+        }
+      },
+      "description": "ATT on ALL adults (expect attenuation vs eligible-only headline)",
+      "headline_eligible": {
+        "cost_barrier": {
+          "ci_high": -0.01622,
+          "ci_low": -0.0531,
+          "estimate": -0.03553,
+          "p_value": 0.0,
+          "se": 0.0097
+        },
+        "fair_poor_health": {
+          "ci_high": -0.00098,
+          "ci_low": -0.03535,
+          "estimate": -0.01841,
+          "p_value": 0.041,
+          "se": 0.0087
+        },
+        "uninsured": {
+          "ci_high": -0.0678,
+          "ci_low": -0.12125,
+          "estimate": -0.09412,
+          "p_value": 0.0,
+          "se": 0.01444
+        }
+      }
+    },
+    "drop_2014_cohort": {
+      "description": "drop the 2014 cohort (expect headline robust)",
+      "uninsured": {
+        "ci_high": -0.08216,
+        "ci_low": -0.15403,
+        "estimate": -0.1197,
+        "p_value": 0.0,
+        "se": 0.01901
+      }
+    },
+    "exclude_covid": {
+      "description": "core window ends 2019 by construction; 2020-21 never enters headline",
+      "window": [
+        2011,
+        2019
+      ]
+    },
+    "placebo_timing": {
+      "description": "fake adoption 3 years early, pre-adoption data only (expect NULL)",
+      "is_null_as_expected": false,
+      "uninsured": {
+        "ci_high": 0.05065,
+        "ci_low": 0.02245,
+        "estimate": 0.03687,
+        "p_value": 0.0,
+        "se": 0.00747
+      }
+    }
+  },
+  "data_mode": "real",
+  "seed": 20260615
+}

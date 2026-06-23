@@ -1,0 +1,597 @@
+{
+  "contrast": {
+    "data_mode": "real",
+    "method": "twfe_sunab_bacon",
+    "outcome_labels": {
+      "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+      "fair_poor_health": "Self-rated health fair or poor",
+      "uninsured": "Uninsured (no health coverage)"
+    },
+    "results": {
+      "cost_barrier": {
+        "goodman_bacon": {
+          "by_type": {
+            "earlier_vs_later_clean": {
+              "avg_did": -0.05034,
+              "weight_share": 0.0731
+            },
+            "later_vs_earlier_FORBIDDEN": {
+              "avg_did": -0.03735,
+              "weight_share": 0.1333
+            },
+            "treated_vs_never": {
+              "avg_did": -0.04738,
+              "weight_share": 0.7936
+            }
+          },
+          "forbidden_comparison_weight": 0.1333,
+          "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+          "twfe_implied_weighted_avg": -0.04626
+        },
+        "sunab_event_study": [
+          {
+            "ci_high": 0.01789,
+            "ci_low": -0.03029,
+            "estimate": -0.0062,
+            "event_time": -5,
+            "se": 0.01229
+          },
+          {
+            "ci_high": 0.02019,
+            "ci_low": -0.01126,
+            "estimate": 0.00447,
+            "event_time": -4,
+            "se": 0.00802
+          },
+          {
+            "ci_high": 0.04983,
+            "ci_low": -0.00044,
+            "estimate": 0.0247,
+            "event_time": -3,
+            "se": 0.01282
+          },
+          {
+            "ci_high": 0.01411,
+            "ci_low": -0.02916,
+            "estimate": -0.00752,
+            "event_time": -2,
+            "se": 0.01104
+          },
+          {
+            "ci_high": 0.00131,
+            "ci_low": -0.0257,
+            "estimate": -0.0122,
+            "event_time": 0,
+            "se": 0.00689
+          },
+          {
+            "ci_high": 0.09132,
+            "ci_low": -0.05386,
+            "estimate": 0.01873,
+            "event_time": 1,
+            "se": 0.03704
+          },
+          {
+            "ci_high": -0.04481,
+            "ci_low": -0.07278,
+            "estimate": -0.05879,
+            "event_time": 2,
+            "se": 0.00714
+          },
+          {
+            "ci_high": -0.04514,
+            "ci_low": -0.08662,
+            "estimate": -0.06588,
+            "event_time": 3,
+            "se": 0.01058
+          },
+          {
+            "ci_high": -0.02589,
+            "ci_low": -0.06016,
+            "estimate": -0.04302,
+            "event_time": 4,
+            "se": 0.00874
+          },
+          {
+            "ci_high": -0.0071,
+            "ci_low": -0.06918,
+            "estimate": -0.03814,
+            "event_time": 5,
+            "se": 0.01584
+          }
+        ],
+        "twfe_static": {
+          "estimate": -0.03424,
+          "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+          "se": 0.00716
+        }
+      },
+      "fair_poor_health": {
+        "goodman_bacon": {
+          "by_type": {
+            "earlier_vs_later_clean": {
+              "avg_did": -0.01056,
+              "weight_share": 0.0731
+            },
+            "later_vs_earlier_FORBIDDEN": {
+              "avg_did": -0.02715,
+              "weight_share": 0.1333
+            },
+            "treated_vs_never": {
+              "avg_did": 0.00445,
+              "weight_share": 0.7936
+            }
+          },
+          "forbidden_comparison_weight": 0.1333,
+          "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+          "twfe_implied_weighted_avg": -0.00086
+        },
+        "sunab_event_study": [
+          {
+            "ci_high": 0.0123,
+            "ci_low": -0.02204,
+            "estimate": -0.00487,
+            "event_time": -5,
+            "se": 0.00876
+          },
+          {
+            "ci_high": -0.00824,
+            "ci_low": -0.04728,
+            "estimate": -0.02776,
+            "event_time": -4,
+            "se": 0.00996
+          },
+          {
+            "ci_high": 0.00699,
+            "ci_low": -0.02007,
+            "estimate": -0.00654,
+            "event_time": -3,
+            "se": 0.0069
+          },
+          {
+            "ci_high": -0.00906,
+            "ci_low": -0.03357,
+            "estimate": -0.02131,
+            "event_time": -2,
+            "se": 0.00625
+          },
+          {
+            "ci_high": -0.00466,
+            "ci_low": -0.02596,
+            "estimate": -0.01531,
+            "event_time": 0,
+            "se": 0.00543
+          },
+          {
+            "ci_high": -0.05623,
+            "ci_low": -0.08794,
+            "estimate": -0.07208,
+            "event_time": 1,
+            "se": 0.00809
+          },
+          {
+            "ci_high": 0.01737,
+            "ci_low": -0.01789,
+            "estimate": -0.00026,
+            "event_time": 2,
+            "se": 0.009
+          },
+          {
+            "ci_high": 0.01435,
+            "ci_low": -0.02296,
+            "estimate": -0.0043,
+            "event_time": 3,
+            "se": 0.00952
+          },
+          {
+            "ci_high": 0.01101,
+            "ci_low": -0.02329,
+            "estimate": -0.00614,
+            "event_time": 4,
+            "se": 0.00875
+          },
+          {
+            "ci_high": 0.02193,
+            "ci_low": -0.04895,
+            "estimate": -0.01351,
+            "event_time": 5,
+            "se": 0.01808
+          }
+        ],
+        "twfe_static": {
+          "estimate": -0.00814,
+          "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+          "se": 0.00889
+        }
+      },
+      "uninsured": {
+        "goodman_bacon": {
+          "by_type": {
+            "earlier_vs_later_clean": {
+              "avg_did": -0.08101,
+              "weight_share": 0.0731
+            },
+            "later_vs_earlier_FORBIDDEN": {
+              "avg_did": -0.10498,
+              "weight_share": 0.1333
+            },
+            "treated_vs_never": {
+              "avg_did": -0.09141,
+              "weight_share": 0.7936
+            }
+          },
+          "forbidden_comparison_weight": 0.1333,
+          "interpretation": "13% of the TWFE estimate's weight comes from forbidden already-treated-as-control comparisons; their bias is why CS is the headline.",
+          "twfe_implied_weighted_avg": -0.09246
+        },
+        "sunab_event_study": [
+          {
+            "ci_high": 0.031,
+            "ci_low": -0.0081,
+            "estimate": 0.01145,
+            "event_time": -5,
+            "se": 0.00997
+          },
+          {
+            "ci_high": 0.00294,
+            "ci_low": -0.05196,
+            "estimate": -0.02451,
+            "event_time": -4,
+            "se": 0.014
+          },
+          {
+            "ci_high": 0.02913,
+            "ci_low": -0.00248,
+            "estimate": 0.01332,
+            "event_time": -3,
+            "se": 0.00806
+          },
+          {
+            "ci_high": 0.01402,
+            "ci_low": -0.01821,
+            "estimate": -0.00209,
+            "event_time": -2,
+            "se": 0.00822
+          },
+          {
+            "ci_high": -0.01767,
+            "ci_low": -0.05821,
+            "estimate": -0.03794,
+            "event_time": 0,
+            "se": 0.01034
+          },
+          {
+            "ci_high": -0.0871,
+            "ci_low": -0.12723,
+            "estimate": -0.10716,
+            "event_time": 1,
+            "se": 0.01024
+          },
+          {
+            "ci_high": -0.06543,
+            "ci_low": -0.11586,
+            "estimate": -0.09064,
+            "event_time": 2,
+            "se": 0.01286
+          },
+          {
+            "ci_high": -0.05994,
+            "ci_low": -0.10836,
+            "estimate": -0.08415,
+            "event_time": 3,
+            "se": 0.01235
+          },
+          {
+            "ci_high": -0.06435,
+            "ci_low": -0.11358,
+            "estimate": -0.08896,
+            "event_time": 4,
+            "se": 0.01256
+          },
+          {
+            "ci_high": -0.05167,
+            "ci_low": -0.13891,
+            "estimate": -0.09529,
+            "event_time": 5,
+            "se": 0.02225
+          }
+        ],
+        "twfe_static": {
+          "estimate": -0.05938,
+          "note": "naive two-way FE; biased under staggered timing + heterogeneity",
+          "se": 0.01707
+        }
+      }
+    },
+    "seed": 20260615
+  },
+  "csdid": {
+    "data_mode": "real",
+    "engine": "python (_csa.py)",
+    "method": "callaway_santanna",
+    "outcome_labels": {
+      "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
+      "fair_poor_health": "Self-rated health fair or poor",
+      "uninsured": "Uninsured (no health coverage)"
+    },
+    "results": {
+      "cost_barrier": {
+        "bootstrap_reps": 999,
+        "ci_level": 0.95,
+        "control_group": "notyettreated",
+        "estimator": "callaway_santanna",
+        "event_study": [
+          {
+            "ci_high": 0.04409,
+            "ci_low": 0.00442,
+            "estimate": 0.02413,
+            "event_time": -3,
+            "p_value": 0.014,
+            "se": 0.01068
+          },
+          {
+            "ci_high": 0.00827,
+            "ci_low": -0.02513,
+            "estimate": -0.00833,
+            "event_time": -2,
+            "p_value": 0.3844,
+            "se": 0.00911
+          },
+          {
+            "ci_high": -0.0035,
+            "ci_low": -0.02348,
+            "estimate": -0.01358,
+            "event_time": 0,
+            "p_value": 0.005,
+            "se": 0.00522
+          },
+          {
+            "ci_high": 0.07556,
+            "ci_low": -0.01351,
+            "estimate": 0.03079,
+            "event_time": 1,
+            "p_value": 0.2963,
+            "se": 0.02474
+          },
+          {
+            "ci_high": -0.0487,
+            "ci_low": -0.07281,
+            "estimate": -0.0608,
+            "event_time": 2,
+            "p_value": 0.0,
+            "se": 0.00622
+          },
+          {
+            "ci_high": -0.04919,
+            "ci_low": -0.08557,
+            "estimate": -0.06755,
+            "event_time": 3,
+            "p_value": 0.0,
+            "se": 0.00932
+          },
+          {
+            "ci_high": -0.01632,
+            "ci_low": -0.0836,
+            "estimate": -0.05097,
+            "event_time": 4,
+            "p_value": 0.001,
+            "se": 0.01762
+          },
+          {
+            "ci_high": 0.00458,
+            "ci_low": -0.17139,
+            "estimate": -0.08543,
+            "event_time": 5,
+            "p_value": 0.0641,
+            "se": 0.04611
+          }
+        ],
+        "n_blocks": 28,
+        "n_states": 53,
+        "outcome": "cost_barrier",
+        "overall_att": {
+          "ci_high": -0.01622,
+          "ci_low": -0.0531,
+          "estimate": -0.03553,
+          "p_value": 0.0,
+          "se": 0.0097
+        },
+        "pre_trend_test": {
+          "flat": false,
+          "interpretation": "PRE-TRENDS REJECTED, identification suspect",
+          "leads_tested": [
+            -3,
+            -2
+          ],
+          "p_value": 0.0075,
+          "wald_stat": 9.7845
+        }
+      },
+      "fair_poor_health": {
+        "bootstrap_reps": 999,
+        "ci_level": 0.95,
+        "control_group": "notyettreated",
+        "estimator": "callaway_santanna",
+        "event_study": [
+          {
+            "ci_high": -0.00263,
+            "ci_low": -0.03653,
+            "estimate": -0.01926,
+            "event_time": -3,
+            "p_value": 0.014,
+            "se": 0.00919
+          },
+          {
+            "ci_high": -0.01995,
+            "ci_low": -0.03779,
+            "estimate": -0.02851,
+            "event_time": -2,
+            "p_value": 0.0,
+            "se": 0.00463
+          },
+          {
+            "ci_high": -0.0135,
+            "ci_low": -0.02757,
+            "estimate": -0.02061,
+            "event_time": 0,
+            "p_value": 0.0,
+            "se": 0.00356
+          },
+          {
+            "ci_high": -0.05152,
+            "ci_low": -0.0794,
+            "estimate": -0.06543,
+            "event_time": 1,
+            "p_value": 0.0,
+            "se": 0.00721
+          },
+          {
+            "ci_high": 0.01317,
+            "ci_low": -0.01223,
+            "estimate": -0.0002,
+            "event_time": 2,
+            "p_value": 0.985,
+            "se": 0.00683
+          },
+          {
+            "ci_high": 0.0148,
+            "ci_low": -0.02125,
+            "estimate": -0.00376,
+            "event_time": 3,
+            "p_value": 0.6997,
+            "se": 0.00934
+          },
+          {
+            "ci_high": 0.08137,
+            "ci_low": -0.02276,
+            "estimate": 0.02821,
+            "event_time": 4,
+            "p_value": 0.4925,
+            "se": 0.03082
+          },
+          {
+            "ci_high": 0.04417,
+            "ci_low": -0.12359,
+            "estimate": -0.04052,
+            "event_time": 5,
+            "p_value": 0.4805,
+            "se": 0.04795
+          }
+        ],
+        "n_blocks": 28,
+        "n_states": 53,
+        "outcome": "fair_poor_health",
+        "overall_att": {
+          "ci_high": -0.00098,
+          "ci_low": -0.03535,
+          "estimate": -0.01841,
+          "p_value": 0.041,
+          "se": 0.0087
+        },
+        "pre_trend_test": {
+          "flat": false,
+          "interpretation": "PRE-TRENDS REJECTED, identification suspect",
+          "leads_tested": [
+            -3,
+            -2
+          ],
+          "p_value": 0.0,
+          "wald_stat": 40.2661
+        }
+      },
+      "uninsured": {
+        "bootstrap_reps": 999,
+        "ci_level": 0.95,
+        "control_group": "notyettreated",
+        "estimator": "callaway_santanna",
+        "event_study": [
+          {
+            "ci_high": 0.01953,
+            "ci_low": -0.01357,
+            "estimate": 0.00416,
+            "event_time": -3,
+            "p_value": 0.6496,
+            "se": 0.00849
+          },
+          {
+            "ci_high": 0.00266,
+            "ci_low": -0.01572,
+            "estimate": -0.00664,
+            "event_time": -2,
+            "p_value": 0.1431,
+            "se": 0.00456
+          },
+          {
+            "ci_high": -0.02657,
+            "ci_low": -0.05788,
+            "estimate": -0.04253,
+            "event_time": 0,
+            "p_value": 0.0,
+            "se": 0.00842
+          },
+          {
+            "ci_high": -0.09639,
+            "ci_low": -0.16784,
+            "estimate": -0.13265,
+            "event_time": 1,
+            "p_value": 0.0,
+            "se": 0.0192
+          },
+          {
+            "ci_high": -0.07159,
+            "ci_low": -0.11544,
+            "estimate": -0.09335,
+            "event_time": 2,
+            "p_value": 0.0,
+            "se": 0.01168
+          },
+          {
+            "ci_high": -0.06466,
+            "ci_low": -0.10683,
+            "estimate": -0.08606,
+            "event_time": 3,
+            "p_value": 0.0,
+            "se": 0.01156
+          },
+          {
+            "ci_high": -0.08132,
+            "ci_low": -0.15766,
+            "estimate": -0.1188,
+            "event_time": 4,
+            "p_value": 0.0,
+            "se": 0.02054
+          },
+          {
+            "ci_high": 0.03441,
+            "ci_low": -0.2268,
+            "estimate": -0.09496,
+            "event_time": 5,
+            "p_value": 0.1451,
+            "se": 0.06583
+          }
+        ],
+        "n_blocks": 28,
+        "n_states": 53,
+        "outcome": "uninsured",
+        "overall_att": {
+          "ci_high": -0.0678,
+          "ci_low": -0.12125,
+          "estimate": -0.09412,
+          "p_value": 0.0,
+          "se": 0.01444
+        },
+        "pre_trend_test": {
+          "flat": true,
+          "interpretation": "pre-trends not rejected (identification assumption supported)",
+          "leads_tested": [
+            -3,
+            -2
+          ],
+          "p_value": 0.1862,
+          "wald_stat": 3.3617
+        }
+      }
+    },
+    "seed": 20260615
+  }
+}
