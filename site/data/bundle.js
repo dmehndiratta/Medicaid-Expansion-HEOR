@@ -656,7 +656,7 @@ window.MEHEOR_DATA = {
   "meta": {
     "data_mode": "real",
     "engine_causal": "python (_csa.py)",
-    "generated_at": "2026-06-23T08:27:18+00:00",
+    "generated_at": "2026-06-23T09:52:23+00:00",
     "outcomes": {
       "cost_barrier": "Could not see a doctor because of cost (last 12 months)",
       "fair_poor_health": "Self-rated health fair or poor",
